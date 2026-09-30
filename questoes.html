@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parte XI - Questões para Fixação | SENAC</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        senacOrange: '#F37021',
+                        senacBlue: '#004A8F',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #475569; }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col justify-between selection:bg-indigo-500 selection:text-white">
+
+    <!-- Header / Navbar -->
+    <header class="bg-slate-800 border-b border-slate-700 sticky top-0 z-50 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <div class="bg-gradient-to-tr from-indigo-600 to-blue-500 p-2.5 rounded-xl text-white shadow-lg">
+                    <i class="fa-solid fa-list-check text-xl"></i>
+                </div>
+                <div>
+                    <h1 class="text-lg font-bold tracking-tight text-white flex items-center gap-2">
+                        SENAC Técnico em Informática 
+                        <span class="text-xs bg-indigo-500/20 text-indigo-400 px-2 py-0.5 rounded-full border border-indigo-500/30">Parte XI</span>
+                    </h1>
+                    <p class="text-xs text-slate-400">Avaliação de Aprendizagem e Questões para Fixação</p>
+                </div>
+            </div>
+
+            <div class="flex items-center space-x-4 mt-2 sm:mt-0">
+                <div class="bg-slate-900/80 border border-slate-700 px-3 py-1.5 rounded-lg flex items-center space-x-2">
+                    <i class="fa-solid fa-trophy text-amber-400"></i>
+                    <span class="text-xs text-slate-400 font-medium">Pontuação:</span>
+                    <span id="score-display" class="text-sm font-bold text-amber-400">0 / 100</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="flex-1 max-w-4xl w-full mx-auto p-4 sm:p-6 space-y-8">
+
+        <!-- Banner de Capa da Parte XI -->
+        <div class="bg-gradient-to-r from-slate-800 via-slate-800 to-indigo-950/80 border border-slate-700 rounded-2xl p-6 sm:p-8 shadow-xl relative overflow-hidden">
+            <div class="absolute -right-10 -bottom-10 opacity-10 text-indigo-400 pointer-events-none">
+                <i class="fa-solid fa-pen-to-square text-9xl"></i>
+            </div>
+            <div class="max-w-3xl">
+                <span class="text-indigo-400 text-xs font-bold uppercase tracking-wider bg-indigo-500/10 px-3 py-1 rounded-full border border-indigo-500/20 inline-block mb-3">
+                    Material Didático Completo • Parte XI
+                </span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-white mb-3">
+                    PARTE XI — QUESTÕES PARA FIXAÇÃO
+                </h2>
+                <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                    Responda às questões objetivas abaixo para testar seus conhecimentos sobre Sustentabilidade, Legislação de Resíduos Sólidos e Ergonomia em TI. Ao finalizar, clique no botão para conferir o seu resultado detalhado!
+                </p>
+            </div>
+        </div>
+
+        <!-- FORMULÁRIO DE QUESTÕES -->
+        <form id="quiz-form" class="space-y-6">
+
+            <!-- QUESTÃO 1 -->
+            <div class="bg-slate-800 border border-slate-700 rounded-2xl p-5 sm:p-6 shadow-md space-y-4" id="q1-card">
+                <div class="flex items-start justify-between gap-3 border-b border-slate-700 pb-3">
+                    <h3 class="text-base font-bold text-white flex gap-2">
+                        <span class="text-indigo-400">1.</span> Qual alternativa representa uma prática sustentável?
+                    </h3>
+                    <span id="badge-q1" class="hidden text-xs font-bold px-2.5 py-1 rounded-full"></span>
+                </div>
+                <div class="space-y-2 text-xs sm:text-sm">
+                    <label class="flex items-center space-x-3 p-3 bg-slate-900/60 hover:bg-slate-700/50 rounded-xl border border-slate-700/80 cursor-pointer transition">
+                        <input type="radio" name="q1" value="A" class="w-4 h-4 text-indigo-600 bg-slate-800 border-slate-600 focus:ring-indigo-500">
+                        <span class="text-slate-200">A) Substituir sempre o computador antigo.</span>
+                    </label>
+                    <label class="flex items-center space-x-3 p-3 bg-slate-900/60 hover:bg-slate-700/50 rounded-xl border border-slate-700/80 cursor-pointer transition">
+                        <input type="radio" name="q1" value="B" class="w-4 h-4 text-indigo-600 bg-slate-800 border-slate-600 focus:ring-indigo-500">
+                        <span class="text-slate-200">B) Descartar equipamentos no lixo comum.</span>
+                    </label>
+                    <label class="flex items-center space-x-3 p-3 bg-slate-900/60 hover:bg-slate-700/50 rounded-xl border border-slate-700/80 cursor-pointer transition">
+                        <input type="radio" name="q1" value="C" class="w-4 h-4 text-indigo-600 bg-slate-800 border-slate-600 focus:ring-indigo-500">
+                        <span class="text-slate-200">C) Avaliar a possibilidade de manutenção antes da substituição.</span>
+                    </label>
+                    <label class="flex items-center space-x-3 p-3 bg-slate-900/60 hover:bg-slate-700/50 rounded-xl border border-slate-700/80 cursor-pointer transition">
+                        <input type="radio" name="q1" value="D" class="w-4 h-4 text-indigo-600 bg-slate-800 border-slate-600 focus:ring-indigo-500">
+                        <span class="text-slate-200">D) Misturar componentes eletrônicos com resíduos orgânicos.</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- QUESTÃO 2 -->
+            <div class="bg-slate-800 border border-slate-700 rounded-2xl p-5 sm:p-6 shadow-md space-y-4" id="q2-card">
+                <div class="flex items-start justify-between gap-3 border-b border-slate-700 pb-3">
+                    <h3 class="text-base font-bold text-white flex gap-2">
+                        <span class="text-indigo-400">2.</span> A logística reversa busca:
+                    </h3>
+                    <span id="badge-q2" class="hidden text-xs font-bold px-2.5 py-1 rounded-full"></span>
+                </div>
+                <div class="space-y-2 text-xs sm:text-sm">
+                    <label class="flex items-center space-x-3 p-3 bg-slate-900/60 hover:bg-slate-700/50 rounded-xl border border-slate-700/80 cursor-pointer transition">
+                        <input type="radio" name="q2" value="A" class="w-4 h-4 text-indigo-600 bg-slate-800 border-slate-600 focus:ring-indigo-500">
+                        <span class="text-slate-200">A) Aumentar a quantidade de resíduos.</span>
+                    </label>
+                    <label class="flex items-center space-x-3 p-3 bg-slate-900/60 hover:bg-slate-700/50 rounded-xl border border-slate-700/80 cursor-pointer transition">
+                        <input type="radio" name="q2" value="B" class="w-4 h-4 text-indigo-600 bg-slate-800 border-slate-600 focus:ring-indigo-500">
+                        <span class="text-slate-200">B) Permitir o retorno de determinados produtos e resíduos ao sistema produtivo ou aos canais adequados de destinação.</span>
+                    </label>
+                    <label class="flex items-center space-x-3 p-3 bg-slate-900/60 hover:bg-slate-700/50 rounded-xl border border-slate-700/80 cursor-pointer transition">
+                        <input type="radio" name="q2" value="C" class="w-4 h-4 text-indigo-600 bg-slate-800 border-slate-600 focus:ring-indigo-500">
+                        <span class="text-slate-200">C) Impedir a reciclagem.</span>
+                    </label>
+                    <label class="flex items-center space-x-3 p-3 bg-slate-900/60 hover:bg-slate-700/50 rounded-xl border border-slate-700/80 cursor-pointer transition">
+                        <input type="radio" name="q2" value="D" class="w-4 h-4 text-indigo-600 bg-slate-800 border-slate-600 focus:ring-indigo-500">
+                        <span class="text-slate-200">D) Substituir a manutenção.</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- QUESTÃO 3 -->
+            <div class="bg-slate-800 border border-slate-700 rounded-2xl p-5 sm:p-6 shadow-md space-y-4" id="q3-card">
+                <div class="flex items-start justify-between gap-3 border-b border-slate-700 pb-3">
+                    <h3 class="text-base font-bold text-white flex gap-2">
+                        <span class="text-indigo-400">3.</span> Qual legislação institui a Política Nacional de Resíduos Sólidos?
+                    </h3>
+                    <span id="badge-q3" class="hidden text-xs font-bold px-2.5 py-1 rounded-full"></span>
+                </div>
+                <div class="space-y-2 text-xs sm:text-sm">
+                    <label class="flex items-center space-x-3 p-3 bg-slate-900/60 hover:bg-slate-700/50 rounded-xl border border-slate-700/80 cursor-pointer transition">
+                        <input type="radio" name="q3" value="A" class="w-4 h-4 text-indigo-600 bg-slate-800 border-slate-600 focus:ring-indigo-500">
+                        <span class="text-slate-200">A) Lei nº 12.305/2010.</span>
+                    </label>
+                    <label class="flex items-center space-x-3 p-3 bg-slate-900/60 hover:bg-slate-700/50 rounded-xl border border-slate-700/80 cursor-pointer transition">
+                        <input type="radio" name="q3" value="B" class="w-4 h-4 text-indigo-600 bg-slate-800 border-slate-600 focus:ring-indigo-500">
+                        <span class="text-slate-200">B) Lei nº 8.112/1990.</span>
+                    </label>
+                    <label class="flex items-center space-x-3 p-3 bg-slate-900/60 hover:bg-slate-700/50 rounded-xl border border-slate-700/80 cursor-pointer transition">
+                        <input type="radio" name="q3" value="C" class="w-4 h-4 text-indigo-600 bg-slate-800 border-slate-600 focus:ring-indigo-500">
+                        <span class="text-slate-200">C) Código de Trânsito Brasileiro.</span>
+                    </label>
+                    <label class="flex items-center space-x-3 p-3 bg-slate-900/60 hover:bg-slate-700/50 rounded-xl border border-slate-700/80 cursor-pointer transition">
+                        <input type="radio" name="q3" value="D" class="w-4 h-4 text-indigo-600 bg-slate-800 border-slate-600 focus:ring-indigo-500">
+                        <span class="text-slate-200">D) Lei de Diretrizes e Bases.</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- QUESTÃO 4 -->
+            <div class="bg-slate-800 border border-slate-700 rounded-2xl p-5 sm:p-6 shadow-md space-y-4" id="q4-card">
+                <div class="flex items-start justify-between gap-3 border-b border-slate-700 pb-3">
+                    <h3 class="text-base font-bold text-white flex gap-2">
+                        <span class="text-indigo-400">4.</span> O Decreto nº 10.240/2020 trata especificamente da implementação de sistema de logística reversa para:
+                    </h3>
+                    <span id="badge-q4" class="hidden text-xs font-bold px-2.5 py-1 rounded-full"></span>
+                </div>
+                <div class="space-y-2 text-xs sm:text-sm">
+                    <label class="flex items-center space-x-3 p-3 bg-slate-900/60 hover:bg-slate-700/50 rounded-xl border border-slate-700/80 cursor-pointer transition">
+                        <input type="radio" name="q4" value="A" class="w-4 h-4 text-indigo-600 bg-slate-800 border-slate-600 focus:ring-indigo-500">
+                        <span class="text-slate-200">A) Alimentos.</span>
+                    </label>
+                    <label class="flex items-center space-x-3 p-3 bg-slate-900/60 hover:bg-slate-700/50 rounded-xl border border-slate-700/80 cursor-pointer transition">
+                        <input type="radio" name="q4" value="B" class="w-4 h-4 text-indigo-600 bg-slate-800 border-slate-600 focus:ring-indigo-500">
+                        <span class="text-slate-200">B) Roupas.</span>
+                    </label>
+                    <label class="flex items-center space-x-3 p-3 bg-slate-900/60 hover:bg-slate-700/50 rounded-xl border border-slate-700/80 cursor-pointer transition">
+                        <input type="radio" name="q4" value="C" class="w-4 h-4 text-indigo-600 bg-slate-800 border-slate-600 focus:ring-indigo-500">
+                        <span class="text-slate-200">C) Produtos eletroeletrônicos de uso doméstico e seus componentes.</span>
+                    </label>
+                    <label class="flex items-center space-x-3 p-3 bg-slate-900/60 hover:bg-slate-700/50 rounded-xl border border-slate-700/80 cursor-pointer transition">
+                        <input type="radio" name="q4" value="D" class="w-4 h-4 text-indigo-600 bg-slate-800 border-slate-600 focus:ring-indigo-500">
+                        <span class="text-slate-200">D) Veículos automotores exclusivamente.</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- QUESTÃO 5 -->
+            <div class="bg-slate-800 border border-slate-700 rounded-2xl p-5 sm:p-6 shadow-md space-y-4" id="q5-card">
+                <div class="flex items-start justify-between gap-3 border-b border-slate-700 pb-3">
+                    <h3 class="text-base font-bold text-white flex gap-2">
+                        <span class="text-indigo-400">5.</span> Antes de descartar um computador utilizado por uma empresa, o técnico deve considerar:
+                    </h3>
+                    <span id="badge-q5" class="hidden text-xs font-bold px-2.5 py-1 rounded-full"></span>
+                </div>
+                <div class="space-y-2 text-xs sm:text-sm">
+                    <label class="flex items-center space-x-3 p-3 bg-slate-900/60 hover:bg-slate-700/50 rounded-xl border border-slate-700/80 cursor-pointer transition">
+                        <input type="radio" name="q5" value="A" class="w-4 h-4 text-indigo-600 bg-slate-800 border-slate-600 focus:ring-indigo-500">
+                        <span class="text-slate-200">A) Somente a aparência externa.</span>
+                    </label>
+                    <label class="flex items-center space-x-3 p-3 bg-slate-900/60 hover:bg-slate-700/50 rounded-xl border border-slate-700/80 cursor-pointer transition">
+                        <input type="radio" name="q5" value="B" class="w-4 h-4 text-indigo-600 bg-slate-800 border-slate-600 focus:ring-indigo-500">
+                        <span class="text-slate-200">B) Apenas o peso do equipamento.</span>
+                    </label>
+                    <label class="flex items-center space-x-3 p-3 bg-slate-900/60 hover:bg-slate-700/50 rounded-xl border border-slate-700/80 cursor-pointer transition">
+                        <input type="radio" name="q5" value="C" class="w-4 h-4 text-indigo-600 bg-slate-800 border-slate-600 focus:ring-indigo-500">
+                        <span class="text-slate-200">C) A existência de dados armazenados.</span>
+                    </label>
+                    <label class="flex items-center space-x-3 p-3 bg-slate-900/60 hover:bg-slate-700/50 rounded-xl border border-slate-700/80 cursor-pointer transition">
+                        <input type="radio" name="q5" value="D" class="w-4 h-4 text-indigo-600 bg-slate-800 border-slate-600 focus:ring-indigo-500">
+                        <span class="text-slate-200">D) Somente a cor do gabinete.</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- QUESTÃO 6 -->
+            <div class="bg-slate-800 border border-slate-700 rounded-2xl p-5 sm:p-6 shadow-md space-y-4" id="q6-card">
+                <div class="flex items-start justify-between gap-3 border-b border-slate-700 pb-3">
+                    <h3 class="text-base font-bold text-white flex gap-2">
+                        <span class="text-indigo-400">6.</span> Qual é um exemplo de risco ergonômico?
+                    </h3>
+                    <span id="badge-q6" class="hidden text-xs font-bold px-2.5 py-1 rounded-full"></span>
+                </div>
+                <div class="space-y-2 text-xs sm:text-sm">
+                    <label class="flex items-center space-x-3 p-3 bg-slate-900/60 hover:bg-slate-700/50 rounded-xl border border-slate-700/80 cursor-pointer transition">
+                        <input type="radio" name="q6" value="A" class="w-4 h-4 text-indigo-600 bg-slate-800 border-slate-600 focus:ring-indigo-500">
+                        <span class="text-slate-200">A) Postura inadequada mantida durante longos períodos.</span>
+                    </label>
+                    <label class="flex items-center space-x-3 p-3 bg-slate-900/60 hover:bg-slate-700/50 rounded-xl border border-slate-700/80 cursor-pointer transition">
+                        <input type="radio" name="q6" value="B" class="w-4 h-4 text-indigo-600 bg-slate-800 border-slate-600 focus:ring-indigo-500">
+                        <span class="text-slate-200">B) Cor do gabinete.</span>
+                    </label>
+                    <label class="flex items-center space-x-3 p-3 bg-slate-900/60 hover:bg-slate-700/50 rounded-xl border border-slate-700/80 cursor-pointer transition">
+                        <input type="radio" name="q6" value="C" class="w-4 h-4 text-indigo-600 bg-slate-800 border-slate-600 focus:ring-indigo-500">
+                        <span class="text-slate-200">C) Sistema operacional.</span>
+                    </label>
+                    <label class="flex items-center space-x-3 p-3 bg-slate-900/60 hover:bg-slate-700/50 rounded-xl border border-slate-700/80 cursor-pointer transition">
+                        <input type="radio" name="q6" value="D" class="w-4 h-4 text-indigo-600 bg-slate-800 border-slate-600 focus:ring-indigo-500">
+                        <span class="text-slate-200">D) Capacidade do SSD.</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- QUESTÃO 7 -->
+            <div class="bg-slate-800 border border-slate-700 rounded-2xl p-5 sm:p-6 shadow-md space-y-4" id="q7-card">
+                <div class="flex items-start justify-between gap-3 border-b border-slate-700 pb-3">
+                    <h3 class="text-base font-bold text-white flex gap-2">
+                        <span class="text-indigo-400">7.</span> A NR relacionada especificamente à ergonomia é:
+                    </h3>
+                    <span id="badge-q7" class="hidden text-xs font-bold px-2.5 py-1 rounded-full"></span>
+                </div>
+                <div class="space-y-2 text-xs sm:text-sm">
+                    <label class="flex items-center space-x-3 p-3 bg-slate-900/60 hover:bg-slate-700/50 rounded-xl border border-slate-700/80 cursor-pointer transition">
+                        <input type="radio" name="q7" value="A" class="w-4 h-4 text-indigo-600 bg-slate-800 border-slate-600 focus:ring-indigo-500">
+                        <span class="text-slate-200">A) NR-05.</span>
+                    </label>
+                    <label class="flex items-center space-x-3 p-3 bg-slate-900/60 hover:bg-slate-700/50 rounded-xl border border-slate-700/80 cursor-pointer transition">
+                        <input type="radio" name="q7" value="B" class="w-4 h-4 text-indigo-600 bg-slate-800 border-slate-600 focus:ring-indigo-500">
+                        <span class="text-slate-200">B) NR-06.</span>
+                    </label>
+                    <label class="flex items-center space-x-3 p-3 bg-slate-900/60 hover:bg-slate-700/50 rounded-xl border border-slate-700/80 cursor-pointer transition">
+                        <input type="radio" name="q7" value="C" class="w-4 h-4 text-indigo-600 bg-slate-800 border-slate-600 focus:ring-indigo-500">
+                        <span class="text-slate-200">C) NR-10.</span>
+                    </label>
+                    <label class="flex items-center space-x-3 p-3 bg-slate-900/60 hover:bg-slate-700/50 rounded-xl border border-slate-700/80 cursor-pointer transition">
+                        <input type="radio" name="q7" value="D" class="w-4 h-4 text-indigo-600 bg-slate-800 border-slate-600 focus:ring-indigo-500">
+                        <span class="text-slate-200">D) NR-17.</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- QUESTÃO 8 -->
+            <div class="bg-slate-800 border border-slate-700 rounded-2xl p-5 sm:p-6 shadow-md space-y-4" id="q8-card">
+                <div class="flex items-start justify-between gap-3 border-b border-slate-700 pb-3">
+                    <h3 class="text-base font-bold text-white flex gap-2">
+                        <span class="text-indigo-400">8.</span> Qual situação pode contribuir para desconforto visual?
+                    </h3>
+                    <span id="badge-q8" class="hidden text-xs font-bold px-2.5 py-1 rounded-full"></span>
+                </div>
+                <div class="space-y-2 text-xs sm:text-sm">
+                    <label class="flex items-center space-x-3 p-3 bg-slate-900/60 hover:bg-slate-700/50 rounded-xl border border-slate-700/80 cursor-pointer transition">
+                        <input type="radio" name="q8" value="A" class="w-4 h-4 text-indigo-600 bg-slate-800 border-slate-600 focus:ring-indigo-500">
+                        <span class="text-slate-200">A) Tela posicionada de modo a receber reflexos intensos.</span>
+                    </label>
+                    <label class="flex items-center space-x-3 p-3 bg-slate-900/60 hover:bg-slate-700/50 rounded-xl border border-slate-700/80 cursor-pointer transition">
+                        <input type="radio" name="q8" value="B" class="w-4 h-4 text-indigo-600 bg-slate-800 border-slate-600 focus:ring-indigo-500">
+                        <span class="text-slate-200">B) Teclado mecânico.</span>
+                    </label>
+                    <label class="flex items-center space-x-3 p-3 bg-slate-900/60 hover:bg-slate-700/50 rounded-xl border border-slate-700/80 cursor-pointer transition">
+                        <input type="radio" name="q8" value="C" class="w-4 h-4 text-indigo-600 bg-slate-800 border-slate-600 focus:ring-indigo-500">
+                        <span class="text-slate-200">C) SSD NVMe.</span>
+                    </label>
+                    <label class="flex items-center space-x-3 p-3 bg-slate-900/60 hover:bg-slate-700/50 rounded-xl border border-slate-700/80 cursor-pointer transition">
+                        <input type="radio" name="q8" value="D" class="w-4 h-4 text-indigo-600 bg-slate-800 border-slate-600 focus:ring-indigo-500">
+                        <span class="text-slate-200">D) Memória RAM.</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- QUESTÃO 9 -->
+            <div class="bg-slate-800 border border-slate-700 rounded-2xl p-5 sm:p-6 shadow-md space-y-4" id="q9-card">
+                <div class="flex items-start justify-between gap-3 border-b border-slate-700 pb-3">
+                    <h3 class="text-base font-bold text-white flex gap-2">
+                        <span class="text-indigo-400">9.</span> LER/DORT está relacionada principalmente a:
+                    </h3>
+                    <span id="badge-q9" class="hidden text-xs font-bold px-2.5 py-1 rounded-full"></span>
+                </div>
+                <div class="space-y-2 text-xs sm:text-sm">
+                    <label class="flex items-center space-x-3 p-3 bg-slate-900/60 hover:bg-slate-700/50 rounded-xl border border-slate-700/80 cursor-pointer transition">
+                        <input type="radio" name="q9" value="A" class="w-4 h-4 text-indigo-600 bg-slate-800 border-slate-600 focus:ring-indigo-500">
+                        <span class="text-slate-200">A) Problemas exclusivamente de software.</span>
+                    </label>
+                    <label class="flex items-center space-x-3 p-3 bg-slate-900/60 hover:bg-slate-700/50 rounded-xl border border-slate-700/80 cursor-pointer transition">
+                        <input type="radio" name="q9" value="B" class="w-4 h-4 text-indigo-600 bg-slate-800 border-slate-600 focus:ring-indigo-500">
+                        <span class="text-slate-200">B) Distúrbios que afetam o sistema musculoesquelético relacionados ao trabalho.</span>
+                    </label>
+                    <label class="flex items-center space-x-3 p-3 bg-slate-900/60 hover:bg-slate-700/50 rounded-xl border border-slate-700/80 cursor-pointer transition">
+                        <input type="radio" name="q9" value="C" class="w-4 h-4 text-indigo-600 bg-slate-800 border-slate-600 focus:ring-indigo-500">
+                        <span class="text-slate-200">C) Falhas de armazenamento.</span>
+                    </label>
+                    <label class="flex items-center space-x-3 p-3 bg-slate-900/60 hover:bg-slate-700/50 rounded-xl border border-slate-700/80 cursor-pointer transition">
+                        <input type="radio" name="q9" value="D" class="w-4 h-4 text-indigo-600 bg-slate-800 border-slate-600 focus:ring-indigo-500">
+                        <span class="text-slate-200">D) Problemas de rede.</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- QUESTÃO 10 -->
+            <div class="bg-slate-800 border border-slate-700 rounded-2xl p-5 sm:p-6 shadow-md space-y-4" id="q10-card">
+                <div class="flex items-start justify-between gap-3 border-b border-slate-700 pb-3">
+                    <h3 class="text-base font-bold text-white flex gap-2">
+                        <span class="text-indigo-400">10.</span> Qual alternativa apresenta uma sequência coerente?
+                    </h3>
+                    <span id="badge-q10" class="hidden text-xs font-bold px-2.5 py-1 rounded-full"></span>
+                </div>
+                <div class="space-y-2 text-xs sm:text-sm">
+                    <label class="flex items-center space-x-3 p-3 bg-slate-900/60 hover:bg-slate-700/50 rounded-xl border border-slate-700/80 cursor-pointer transition">
+                        <input type="radio" name="q10" value="A" class="w-4 h-4 text-indigo-600 bg-slate-800 border-slate-600 focus:ring-indigo-500">
+                        <span class="text-slate-200">A) Descartar → comprar → diagnosticar.</span>
+                    </label>
+                    <label class="flex items-center space-x-3 p-3 bg-slate-900/60 hover:bg-slate-700/50 rounded-xl border border-slate-700/80 cursor-pointer transition">
+                        <input type="radio" name="q10" value="B" class="w-4 h-4 text-indigo-600 bg-slate-800 border-slate-600 focus:ring-indigo-500">
+                        <span class="text-slate-200">B) Diagnosticar → reparar/reutilizar → reaproveitar/reciclar → destinar adequadamente.</span>
+                    </label>
+                    <label class="flex items-center space-x-3 p-3 bg-slate-900/60 hover:bg-slate-700/50 rounded-xl border border-slate-700/80 cursor-pointer transition">
+                        <input type="radio" name="q10" value="C" class="w-4 h-4 text-indigo-600 bg-slate-800 border-slate-600 focus:ring-indigo-500">
+                        <span class="text-slate-200">C) Comprar → descartar → avaliar.</span>
+                    </label>
+                    <label class="flex items-center space-x-3 p-3 bg-slate-900/60 hover:bg-slate-700/50 rounded-xl border border-slate-700/80 cursor-pointer transition">
+                        <input type="radio" name="q10" value="D" class="w-4 h-4 text-indigo-600 bg-slate-800 border-slate-600 focus:ring-indigo-500">
+                        <span class="text-slate-200">D) Queimar → separar → reciclar.</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- BOTÃO DE ENVIAR -->
+            <div class="text-center pt-4">
+                <button type="button" onclick="calculateResult()" class="bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-3.5 px-8 rounded-xl shadow-lg transition duration-200 flex items-center justify-center gap-2 mx-auto text-sm sm:text-base">
+                    <i class="fa-solid fa-paper-plane"></i> Finalizar e Ver Resultado
+                </button>
+            </div>
+
+        </form>
+
+        <!-- CARD DE RESULTADO (INICIALMENTE OCULTO) -->
+        <div id="result-card" class="hidden bg-slate-800 border border-indigo-500/50 rounded-2xl p-6 sm:p-8 shadow-2xl space-y-6 text-center">
+            <div class="w-20 h-20 bg-indigo-500/20 text-indigo-400 border border-indigo-500/30 rounded-full flex items-center justify-center mx-auto text-4xl shadow-inner">
+                <i id="result-icon" class="fa-solid fa-trophy"></i>
+            </div>
+            
+            <div class="space-y-2">
+                <h3 class="text-2xl font-extrabold text-white">Resultado Final</h3>
+                <p id="result-message" class="text-sm text-slate-300"></p>
+            </div>
+
+            <div class="flex justify-center items-center gap-6 py-4 bg-slate-900/80 rounded-xl border border-slate-700 max-w-sm mx-auto">
+                <div>
+                    <span class="text-xs text-slate-400 uppercase tracking-wider block">Acertos</span>
+                    <span id="correct-count" class="text-2xl font-black text-emerald-400">0 / 10</span>
+                </div>
+                <div class="h-8 w-px bg-slate-700"></div>
+                <div>
+                    <span class="text-xs text-slate-400 uppercase tracking-wider block">Aproveitamento</span>
+                    <span id="percentage-count" class="text-2xl font-black text-indigo-400">0%</span>
+                </div>
+            </div>
+
+            <button type="button" onclick="resetQuiz()" class="bg-slate-700 hover:bg-slate-600 text-slate-200 text-xs font-bold py-2.5 px-5 rounded-lg border border-slate-600 transition">
+                <i class="fa-solid fa-rotate-left mr-1.5"></i> Refazer Questionário
+            </button>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-800 border-t border-slate-700 py-4 text-center text-xs text-slate-400 mt-8">
+        <p>SENAC • Técnico em Informática | Material Didático - Parte XI: Questões para Fixação</p>
+    </footer>
+
+    <!-- LÓGICA DE GABARITO E PONTUAÇÃO -->
+    <script>
+        const correctAnswers = {
+            q1: 'C',
+            q2: 'B',
+            q3: 'A',
+            q4: 'C',
+            q5: 'C',
+            q6: 'A',
+            q7: 'D',
+            q8: 'A',
+            q9: 'B',
+            q10: 'B'
+        };
+
+        function calculateResult() {
+            let correct = 0;
+            const total = Object.keys(correctAnswers).length;
+
+            for (let i = 1; i <= total; i++) {
+                const qName = `q${i}`;
+                const selectedOption = document.querySelector(`input[name="${qName}"]:checked`);
+                const badge = document.getElementById(`badge-${qName}`);
+                const card = document.getElementById(`${qName}-card`);
+
+                badge.classList.remove('hidden', 'bg-emerald-500/20', 'text-emerald-400', 'border-emerald-500/30', 'bg-red-500/20', 'text-red-400', 'border-red-500/30');
+
+                if (selectedOption && selectedOption.value === correctAnswers[qName]) {
+                    correct++;
+                    badge.innerText = "Correto";
+                    badge.classList.add('bg-emerald-500/20', 'text-emerald-400', 'border', 'border-emerald-500/30');
+                    card.classList.remove('border-slate-700', 'border-red-500/40');
+                    card.classList.add('border-emerald-500/40');
+                } else {
+                    badge.innerText = `Incorreto (Gabarito: ${correctAnswers[qName]})`;
+                    badge.classList.add('bg-red-500/20', 'text-red-400', 'border', 'border-red-500/30');
+                    card.classList.remove('border-slate-700', 'border-emerald-500/40');
+                    card.classList.add('border-red-500/40');
+                }
+            }
+
+            const percentage = Math.round((correct / total) * 100);
+
+            document.getElementById('score-display').innerText = `${correct * 10} / 100`;
+            document.getElementById('correct-count').innerText = `${correct} / ${total}`;
+            document.getElementById('percentage-count').innerText = `${percentage}%`;
+
+            const resultCard = document.getElementById('result-card');
+            const resultMsg = document.getElementById('result-message');
+            const resultIcon = document.getElementById('result-icon');
+
+            if (percentage >= 70) {
+                resultMsg.innerText = "Parabéns! Você demonstrou excelente domínio sobre os conceitos de sustentabilidade, legislação e ergonomia em TI.";
+                resultIcon.className = "fa-solid fa-trophy text-amber-400";
+            } else {
+                resultMsg.innerText = "Revisite o conteúdo das partes anteriores e tente novamente para reforçar os seus conhecimentos!";
+                resultIcon.className = "fa-solid fa-book-open text-indigo-400";
+            }
+
+            resultCard.classList.remove('hidden');
+            resultCard.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function resetQuiz() {
+            document.getElementById('quiz-form').reset();
+            const total = Object.keys(correctAnswers).length;
+
+            for (let i = 1; i <= total; i++) {
+                const qName = `q${i}`;
+                const badge = document.getElementById(`badge-${qName}`);
+                const card = document.getElementById(`${qName}-card`);
+
+                badge.classList.add('hidden');
+                card.className = "bg-slate-800 border border-slate-700 rounded-2xl p-5 sm:p-6 shadow-md space-y-4";
+            }
+
+            document.getElementById('result-card').classList.add('hidden');
+            document.getElementById('score-display').innerText = "0 / 100";
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

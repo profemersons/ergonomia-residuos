@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parte III - Legislação Ambiental | SENAC</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        senacOrange: '#F37021',
+                        senacBlue: '#004A8F',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #475569; }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col justify-between selection:bg-emerald-500 selection:text-white">
+
+    <!-- Header / Navbar -->
+    <header class="bg-slate-800 border-b border-slate-700 sticky top-0 z-50 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <div class="bg-gradient-to-tr from-emerald-600 to-teal-500 p-2.5 rounded-xl text-white shadow-lg">
+                    <i class="fa-solid fa-scale-balanced text-xl"></i>
+                </div>
+                <div>
+                    <h1 class="text-lg font-bold tracking-tight text-white flex items-center gap-2">
+                        SENAC Técnico em Informática 
+                        <span class="text-xs bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded-full border border-emerald-500/30">Parte III</span>
+                    </h1>
+                    <p class="text-xs text-slate-400">Legislação Ambiental e Logística Reversa</p>
+                </div>
+            </div>
+
+            <div class="flex items-center space-x-4 mt-2 sm:mt-0">
+                <div class="bg-slate-900/80 border border-slate-700 px-3 py-1.5 rounded-lg flex items-center space-x-2">
+                    <i class="fa-solid fa-bolt text-amber-400"></i>
+                    <span class="text-xs text-slate-400 font-medium">Pontuação:</span>
+                    <span id="score-display" class="text-sm font-bold text-amber-400">0 XP</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 space-y-8">
+
+        <!-- Banner de Capa da Parte III -->
+        <div class="bg-gradient-to-r from-slate-800 via-slate-800 to-indigo-950/80 border border-slate-700 rounded-2xl p-6 sm:p-8 shadow-xl relative overflow-hidden">
+            <div class="absolute -right-10 -bottom-10 opacity-10 text-indigo-400 pointer-events-none">
+                <i class="fa-solid fa-gavel text-9xl"></i>
+            </div>
+            <div class="max-w-3xl">
+                <span class="text-indigo-400 text-xs font-bold uppercase tracking-wider bg-indigo-500/10 px-3 py-1 rounded-full border border-indigo-500/20 inline-block mb-3">
+                    Material Didático Completo • Parte III
+                </span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-white mb-3">
+                    PARTE III — LEGISLAÇÃO AMBIENTAL
+                </h2>
+                <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                    Compreenda o marco legal brasileiro (PNRS, Decretos e CONAMA), a responsabilidade compartilhada, os fluxos de logística reversa, a sanitização de dados e os pontos de descarte correto.
+                </p>
+            </div>
+        </div>
+
+        <!-- 16. PRINCIPAL MARCO LEGAL -->
+        <section class="bg-slate-800 border border-slate-700 rounded-2xl p-6 shadow-md space-y-4">
+            <div class="flex items-center gap-3 border-b border-slate-700 pb-3">
+                <div class="p-2.5 rounded-xl bg-indigo-500/10 border border-indigo-500/20 text-indigo-400">
+                    <i class="fa-solid fa-book-bookmark text-xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white">16. PRINCIPAL MARCO LEGAL</h3>
+            </div>
+            <p class="text-sm text-slate-300 leading-relaxed">
+                No Brasil, um dos principais instrumentos legais relacionados ao tema é a <strong>Lei nº 12.305/2010</strong>, que institui a <strong>Política Nacional de Resíduos Sólidos (PNRS)</strong>.
+            </p>
+            <p class="text-xs text-slate-400 leading-relaxed">
+                Essa lei estabelece princípios, objetivos e instrumentos relacionados à gestão e ao gerenciamento de resíduos sólidos e às responsabilidades dos geradores e do poder público (Presidência da República).
+            </p>
+
+            <div>
+                <span class="text-xs font-bold text-indigo-400 uppercase tracking-wider block mb-2">Conceitos Fundamentais Trabalhados pela PNRS:</span>
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-7 gap-2 text-xs text-center font-semibold">
+                    <div class="bg-slate-900/80 p-2.5 rounded-lg border border-slate-700 text-slate-300">Responsabilidade Compartilhada</div>
+                    <div class="bg-slate-900/80 p-2.5 rounded-lg border border-slate-700 text-slate-300">Logística Reversa</div>
+                    <div class="bg-slate-900/80 p-2.5 rounded-lg border border-slate-700 text-slate-300">Destinação Adequada</div>
+                    <div class="bg-slate-900/80 p-2.5 rounded-lg border border-slate-700 text-slate-300">Disposição Final de Rejeitos</div>
+                    <div class="bg-slate-900/80 p-2.5 rounded-lg border border-slate-700 text-slate-300">Reutilização</div>
+                    <div class="bg-slate-900/80 p-2.5 rounded-lg border border-slate-700 text-slate-300">Reciclagem</div>
+                    <div class="bg-slate-900/80 p-2.5 rounded-lg border border-slate-700 text-slate-300">Rejeitos</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 17. RESPONSABILIDADE COMPARTILHADA -->
+        <section class="bg-slate-800 border border-slate-700 rounded-2xl p-6 shadow-md space-y-4">
+            <div class="flex items-center gap-3 border-b border-slate-700 pb-3">
+                <div class="p-2.5 rounded-xl bg-purple-500/10 border border-purple-500/20 text-purple-400">
+                    <i class="fa-solid fa-users-between-lines text-xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white">17. RESPONSABILIDADE COMPARTILHADA</h3>
+            </div>
+            <p class="text-sm text-slate-300 leading-relaxed">
+                Um dos conceitos fundamentais da PNRS é a ideia de que diferentes participantes da cadeia possuem responsabilidades no ciclo de vida dos produtos.
+            </p>
+
+            <span class="text-xs font-bold text-purple-400 uppercase tracking-wider block mb-1">Participam dessa cadeia:</span>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-2 text-xs">
+                <div class="bg-slate-900/80 p-2.5 rounded-lg border border-slate-700 text-slate-300 flex items-center gap-2"><i class="fa-solid fa-industry text-purple-400"></i>Fabricantes</div>
+                <div class="bg-slate-900/80 p-2.5 rounded-lg border border-slate-700 text-slate-300 flex items-center gap-2"><i class="fa-solid fa-plane-arrival text-purple-400"></i>Importadores</div>
+                <div class="bg-slate-900/80 p-2.5 rounded-lg border border-slate-700 text-slate-300 flex items-center gap-2"><i class="fa-solid fa-truck-ramp-box text-purple-400"></i>Distribuidores</div>
+                <div class="bg-slate-900/80 p-2.5 rounded-lg border border-slate-700 text-slate-300 flex items-center gap-2"><i class="fa-solid fa-store text-purple-400"></i>Comerciantes</div>
+                <div class="bg-slate-900/80 p-2.5 rounded-lg border border-slate-700 text-slate-300 flex items-center gap-2"><i class="fa-solid fa-user-check text-purple-400"></i>Consumidores</div>
+                <div class="bg-slate-900/80 p-2.5 rounded-lg border border-slate-700 text-slate-300 flex items-center gap-2"><i class="fa-solid fa-building-columns text-purple-400"></i>Poder Público</div>
+            </div>
+
+            <div class="bg-slate-900/90 border border-red-500/30 p-4 rounded-xl text-center">
+                <p class="text-xs text-red-300 line-through mb-1">"A responsabilidade ambiental é simplesmente problema da prefeitura."</p>
+                <p class="text-xs font-bold text-emerald-400">A gestão adequada depende da participação de TODOS os envolvidos na cadeia.</p>
+            </div>
+        </section>
+
+        <!-- 18 & 19. LOGÍSTICA REVERSA E ELETROELETRÔNICOS -->
+        <section class="bg-slate-800 border border-slate-700 rounded-2xl p-6 shadow-md space-y-4">
+            <div class="flex items-center gap-3 border-b border-slate-700 pb-3">
+                <div class="p-2.5 rounded-xl bg-teal-500/10 border border-teal-500/20 text-teal-400">
+                    <i class="fa-solid fa-right-left text-xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white">18 & 19. LOGÍSTICA REVERSA E REGULAMENTAÇÃO DOS ELETROELETRÔNICOS</h3>
+            </div>
+            <p class="text-sm text-slate-300 leading-relaxed">
+                Logística reversa é o conjunto de ações que possibilita que determinados produtos e resíduos retornem ao setor empresarial para reaproveitamento, reciclagem, tratamento ou destinação adequada.
+            </p>
+
+            <!-- FLUXOS -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-slate-900/80 border border-slate-700 p-4 rounded-xl space-y-2">
+                    <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block">Fluxo Tradicional</span>
+                    <div class="flex items-center gap-2 text-xs font-semibold text-slate-300 justify-center">
+                        <span class="bg-slate-800 px-2.5 py-1 rounded border border-slate-700">Fabricante</span>
+                        <i class="fa-solid fa-arrow-right text-slate-500"></i>
+                        <span class="bg-slate-800 px-2.5 py-1 rounded border border-slate-700">Loja</span>
+                        <i class="fa-solid fa-arrow-right text-slate-500"></i>
+                        <span class="bg-slate-800 px-2.5 py-1 rounded border border-slate-700">Consumidor</span>
+                    </div>
+                </div>
+
+                <div class="bg-slate-900/80 border border-teal-500/40 p-4 rounded-xl space-y-2">
+                    <span class="text-xs font-bold text-teal-400 uppercase tracking-wider block">Fluxo Reverso</span>
+                    <div class="flex flex-wrap items-center gap-1.5 text-[11px] font-semibold text-teal-300 justify-center">
+                        <span class="bg-slate-800 px-2 py-1 rounded border border-slate-700">Consumidor</span>
+                        <i class="fa-solid fa-arrow-right text-teal-500"></i>
+                        <span class="bg-slate-800 px-2 py-1 rounded border border-slate-700">Ponto de Recebimento</span>
+                        <i class="fa-solid fa-arrow-right text-teal-500"></i>
+                        <span class="bg-slate-800 px-2 py-1 rounded border border-slate-700">Sistema Logístico</span>
+                        <i class="fa-solid fa-arrow-right text-teal-500"></i>
+                        <span class="bg-slate-800 px-2 py-1 rounded border border-slate-700">Tratamento/Reciclagem/Destinação</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Decreto 10.240/2020 e Etapas SINIR -->
+            <div class="bg-slate-900/90 border border-slate-700 p-4 rounded-xl space-y-3">
+                <span class="text-xs font-bold text-indigo-400 uppercase tracking-wider block">
+                    Decreto nº 10.240/2020 (Logística Reversa de Eletroeletrônicos Domésticos)
+                </span>
+                <p class="text-xs text-slate-300">
+                    Regulamenta o sistema de logística reversa para produtos eletroeletrônicos de uso doméstico e seus componentes. O SINIR apresenta as etapas do funcionamento do sistema:
+                </p>
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-2 text-xs text-center">
+                    <div class="bg-slate-800 p-2 rounded-lg border border-slate-700">1. Descarte pelo consumidor em pontos de recebimento</div>
+                    <div class="bg-slate-800 p-2 rounded-lg border border-slate-700">2. Recebimento e armazenamento</div>
+                    <div class="bg-slate-800 p-2 rounded-lg border border-slate-700">3. Transporte</div>
+                    <div class="bg-slate-800 p-2 rounded-lg border border-slate-700">4. Tratamento</div>
+                    <div class="bg-slate-800 p-2 rounded-lg border border-slate-700">5. Reutilização, recuperação ou reciclagem</div>
+                    <div class="bg-slate-800 p-2 rounded-lg border border-slate-700 text-red-300">6. Disposição final adequada dos rejeitos</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 20. RESPONSABILIDADE DO CONSUMIDOR E SEGURANÇA DA INFORMAÇÃO -->
+        <section class="bg-slate-800 border border-slate-700 rounded-2xl p-6 shadow-md space-y-4">
+            <div class="flex items-center gap-3 border-b border-slate-700 pb-3">
+                <div class="p-2.5 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400">
+                    <i class="fa-solid fa-user-shield text-xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white">20. RESPONSABILIDADE DO CONSUMIDOR E SEGURANÇA DA INFORMAÇÃO</h3>
+            </div>
+
+            <p class="text-sm text-slate-300">
+                O Decreto nº 10.240/2020 estabelece obrigações diretas para o consumidor/usuário:
+            </p>
+            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-300">
+                <li class="bg-slate-900/80 p-2.5 rounded-lg border border-slate-700 flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i>Separar os produtos eletroeletrônicos de outros resíduos.</li>
+                <li class="bg-slate-900/80 p-2.5 rounded-lg border border-slate-700 flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i>Preservar a integridade do equipamento.</li>
+                <li class="bg-slate-900/80 p-2.5 rounded-lg border border-amber-500/40 flex items-center gap-2"><i class="fa-solid fa-triangle-exclamation text-amber-400"></i>Remover informações e dados privados antes do descarte.</li>
+                <li class="bg-slate-900/80 p-2.5 rounded-lg border border-slate-700 flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i>Encaminhar o produto aos pontos de recebimento adequados.</li>
+            </ul>
+
+            <!-- ALERTA DE SEGURANÇA DA INFORMAÇÃO -->
+            <div class="bg-amber-950/40 border border-amber-500/40 p-5 rounded-xl space-y-3">
+                <div class="flex items-center gap-2 text-amber-400 font-bold text-sm uppercase tracking-wider">
+                    <i class="fa-solid fa-shield-halved"></i> ATENÇÃO TÉCNICA: SEGURANÇA DA INFORMAÇÃO
+                </div>
+                <p class="text-xs text-slate-200 leading-relaxed">
+                    Esse ponto é especialmente importante para técnicos de informática. Antes de encaminhar um computador, notebook, HD, SSD ou outro equipamento que armazene dados, lembre-se de que o equipamento pode conter dados privados pessoais ou corporativos:
+                </p>
+                <div class="flex flex-wrap gap-2 text-[11px] text-slate-300">
+                    <span class="bg-slate-800 px-2.5 py-1 rounded border border-slate-700">Documentos</span>
+                    <span class="bg-slate-800 px-2.5 py-1 rounded border border-slate-700">Fotografias</span>
+                    <span class="bg-slate-800 px-2.5 py-1 rounded border border-slate-700">Senhas</span>
+                    <span class="bg-slate-800 px-2.5 py-1 rounded border border-slate-700">Arquivos escolares</span>
+                    <span class="bg-slate-800 px-2.5 py-1 rounded border border-slate-700">Documentos financeiros</span>
+                    <span class="bg-slate-800 px-2.5 py-1 rounded border border-slate-700">Informações de clientes</span>
+                    <span class="bg-slate-800 px-2.5 py-1 rounded border border-slate-700">Dados corporativos</span>
+                    <span class="bg-slate-800 px-2.5 py-1 rounded border border-slate-700">E-mails</span>
+                    <span class="bg-slate-800 px-2.5 py-1 rounded border border-slate-700">Credenciais</span>
+                </div>
+                <p class="text-xs font-bold text-amber-300 pt-1">
+                    Por isso: Descarte ambientalmente correto e segurança da informação caminham juntos!
+                </p>
+            </div>
+        </section>
+
+        <!-- 21. PILHAS E BATERIAS -->
+        <section class="bg-slate-800 border border-slate-700 rounded-2xl p-6 shadow-md space-y-4">
+            <div class="flex items-center gap-3 border-b border-slate-700 pb-3">
+                <div class="p-2.5 rounded-xl bg-red-500/10 border border-red-500/20 text-red-400">
+                    <i class="fa-solid fa-car-battery text-xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white">21. PILHAS E BATERIAS (RESOLUÇÃO CONAMA Nº 401/2008)</h3>
+            </div>
+            <p class="text-sm text-slate-300 leading-relaxed">
+                Pilhas e baterias possuem sistemas específicos de gerenciamento e logística reversa. A <strong>Resolução CONAMA nº 401/2008</strong> estabelece critérios para o gerenciamento ambientalmente adequado e fixa limites para metais pesados. O IBAMA orienta o cumprimento rigoroso dessa legislação.
+            </p>
+
+            <div class="bg-slate-900/80 border border-red-500/30 p-4 rounded-xl space-y-2">
+                <span class="text-xs font-bold text-red-400 uppercase tracking-wider block">
+                    Jamais trate como lixo comum os seguintes itens:
+                </span>
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-2 text-xs text-center text-slate-300">
+                    <div class="bg-slate-800 p-2 rounded-lg border border-slate-700">Baterias de Notebook</div>
+                    <div class="bg-slate-800 p-2 rounded-lg border border-slate-700">Baterias de Celular</div>
+                    <div class="bg-slate-800 p-2 rounded-lg border border-slate-700">Pilhas AA</div>
+                    <div class="bg-slate-800 p-2 rounded-lg border border-slate-700">Pilhas AAA</div>
+                    <div class="bg-slate-800 p-2 rounded-lg border border-slate-700">Baterias de Periféricos</div>
+                    <div class="bg-slate-800 p-2 rounded-lg border border-slate-700">Baterias de Nobreak</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 22 & 23. ONDE DESCARTAR E O QUE NÃO FAZER -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+            <!-- 22. ONDE DESCARTAR & REGRA PRÁTICA -->
+            <div class="bg-slate-800 border border-slate-700 rounded-2xl p-6 shadow-md space-y-4">
+                <div class="flex items-center gap-3 border-b border-slate-700 pb-3">
+                    <div class="p-2.5 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400">
+                        <i class="fa-solid fa-location-dot text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">22. ONDE DESCARTAR?</h3>
+                </div>
+                <p class="text-xs text-slate-300">
+                    O ponto correto depende do material e da estrutura regional. O <strong>SINIR</strong> mantém informações sobre logística reversa e indica pontos de coleta oficiais.
+                </p>
+
+                <div class="bg-slate-900/80 border border-emerald-500/30 p-4 rounded-xl space-y-2">
+                    <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider block">Regra Prática para o Técnico antes de Descartar:</span>
+                    <ol class="list-decimal list-inside text-xs text-slate-300 space-y-1">
+                        <li><strong>Identifique</strong> o equipamento.</li>
+                        <li><strong>Verifique</strong> se possui bateria ou componente especial.</li>
+                        <li><strong>Verifique</strong> se contém dados privados.</li>
+                        <li><strong>Consulte</strong> o sistema de logística reversa aplicável.</li>
+                        <li><strong>Procure</strong> ponto de recebimento ou empresa habilitada.</li>
+                        <li><strong>Registre</strong> a destinação quando necessário.</li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- 23. O QUE NÃO FAZER? -->
+            <div class="bg-slate-800 border border-slate-700 rounded-2xl p-6 shadow-md space-y-4">
+                <div class="flex items-center gap-3 border-b border-slate-700 pb-3">
+                    <div class="p-2.5 rounded-xl bg-red-500/10 border border-red-500/20 text-red-400">
+                        <i class="fa-solid fa-ban text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">23. O QUE NÃO FAZER? (CONDUTAS PROIBIDAS)</h3>
+                </div>
+                <p class="text-xs text-slate-300">Nunca adote práticas danosas ou ilegais:</p>
+                <ul class="text-xs text-slate-300 space-y-1.5">
+                    <li class="flex items-start gap-2"><i class="fa-solid fa-xmark text-red-400 mt-0.5"></i>Jogar computador no lixo comum.</li>
+                    <li class="flex items-start gap-2"><i class="fa-solid fa-xmark text-red-400 mt-0.5"></i>Abandonar monitor em via pública.</li>
+                    <li class="flex items-start gap-2"><i class="fa-solid fa-xmark text-red-400 mt-0.5"></i>Queimar cabos para retirar cobre.</li>
+                    <li class="flex items-start gap-2"><i class="fa-solid fa-xmark text-red-400 mt-0.5"></i>Desmontar baterias sem procedimento adequado.</li>
+                    <li class="flex items-start gap-2"><i class="fa-solid fa-xmark text-red-400 mt-0.5"></i>Descartar placas em locais inadequados.</li>
+                    <li class="flex items-start gap-2"><i class="fa-solid fa-xmark text-red-400 mt-0.5"></i>Misturar resíduos eletrônicos com resíduos orgânicos.</li>
+                    <li class="flex items-start gap-2"><i class="fa-solid fa-xmark text-red-400 mt-0.5"></i>Enviar equipamentos com dados sem avaliar segurança da informação.</li>
+                    <li class="flex items-start gap-2"><i class="fa-solid fa-xmark text-red-400 mt-0.5"></i>Entregar resíduos a terceiros sem verificar a destinação legal.</li>
+                </ul>
+            </div>
+
+        </section>
+
+        <!-- ÁREA INTERATIVA DO JOGO: SIMULADOR DE CONFORMIDADE LEGAL -->
+        <section class="bg-slate-800/90 border border-indigo-500/40 rounded-2xl p-6 sm:p-8 shadow-2xl space-y-6">
+            <div class="flex flex-wrap items-center justify-between gap-4 border-b border-slate-700 pb-4">
+                <div>
+                    <span class="text-xs text-indigo-400 font-bold uppercase tracking-wider bg-indigo-500/10 px-3 py-1 rounded-full border border-indigo-500/20">
+                        Jogo Prático Interativo
+                    </span>
+                    <h3 class="text-xl font-extrabold text-white mt-1">Simulador de Conformidade Legal e Logística Reversa</h3>
+                </div>
+                <div class="text-xs bg-slate-900 px-3 py-1.5 rounded-lg border border-slate-700 text-slate-300">
+                    Progresso: <span id="game-progress" class="font-bold text-indigo-400">0 / 4</span> resolvidos
+                </div>
+            </div>
+
+            <!-- DESAFIOS DO JOGO -->
+            <div class="space-y-6">
+
+                <!-- DESAFIO 1 -->
+                <div id="q1-box" class="bg-slate-900/80 border border-slate-700 p-5 rounded-xl space-y-3">
+                    <span class="text-xs font-bold text-indigo-400 uppercase tracking-wider">Desafio #1 • A Lei Principal (PNRS)</span>
+                    <p class="text-xs text-slate-200">
+                        Qual é o principal instrumento legal no Brasil que institui a Política Nacional de Resíduos Sólidos (PNRS)?
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs">
+                        <button onclick="checkAnswer(1, 'A', this)" class="bg-slate-800 hover:bg-slate-700 p-3 rounded-lg border border-slate-700 text-left">A) Resolução CONAMA nº 401/2008</button>
+                        <button onclick="checkAnswer(1, 'B', this)" class="bg-slate-800 hover:bg-slate-700 p-3 rounded-lg border border-slate-700 text-left">B) Lei nº 12.305/2010</button>
+                        <button onclick="checkAnswer(1, 'C', this)" class="bg-slate-800 hover:bg-slate-700 p-3 rounded-lg border border-slate-700 text-left">C) Decreto nº 10.240/2020</button>
+                    </div>
+                    <div id="fb1" class="hidden p-3 rounded-lg text-xs font-medium"></div>
+                </div>
+
+                <!-- DESAFIO 2 -->
+                <div id="q2-box" class="bg-slate-900/80 border border-slate-700 p-5 rounded-xl space-y-3">
+                    <span class="text-xs font-bold text-amber-400 uppercase tracking-wider">Desafio #2 • Segurança da Informação x Descarte</span>
+                    <p class="text-xs text-slate-200">
+                        Antes de enviar um HD ou notebook corporativo para o sistema de logística reversa, qual passo crítico o técnico DEVE realizar segundo a legislação e boas práticas?
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs">
+                        <button onclick="checkAnswer(2, 'A', this)" class="bg-slate-800 hover:bg-slate-700 p-3 rounded-lg border border-slate-700 text-left">A) Enviar imediatamente para não acumular resíduo.</button>
+                        <button onclick="checkAnswer(2, 'B', this)" class="bg-slate-800 hover:bg-slate-700 p-3 rounded-lg border border-slate-700 text-left">B) Remover todas as informações e dados privados com procedimentos de sanitização.</button>
+                        <button onclick="checkAnswer(2, 'C', this)" class="bg-slate-800 hover:bg-slate-700 p-3 rounded-lg border border-slate-700 text-left">C) Apenas colar uma etiqueta avisando que tem senhas gravadas.</button>
+                    </div>
+                    <div id="fb2" class="hidden p-3 rounded-lg text-xs font-medium"></div>
+                </div>
+
+                <!-- DESAFIO 3 -->
+                <div id="q3-box" class="bg-slate-900/80 border border-slate-700 p-5 rounded-xl space-y-3">
+                    <span class="text-xs font-bold text-red-400 uppercase tracking-wider">Desafio #3 • Regras para Pilhas e Baterias</span>
+                    <p class="text-xs text-slate-200">
+                        Qual norma regulamenta especificamente o gerenciamento e os limites de metais pesados para pilhas e baterias de nobreaks/notebooks no Brasil?
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs">
+                        <button onclick="checkAnswer(3, 'A', this)" class="bg-slate-800 hover:bg-slate-700 p-3 rounded-lg border border-slate-700 text-left">A) Resolução CONAMA nº 401/2008</button>
+                        <button onclick="checkAnswer(3, 'B', this)" class="bg-slate-800 hover:bg-slate-700 p-3 rounded-lg border border-slate-700 text-left">B) CLT - Consolidação das Leis do Trabalho</button>
+                        <button onclick="checkAnswer(3, 'C', this)" class="bg-slate-800 hover:bg-slate-700 p-3 rounded-lg border border-slate-700 text-left">C) Código de Defesa do Consumidor</button>
+                    </div>
+                    <div id="fb3" class="hidden p-3 rounded-lg text-xs font-medium"></div>
+                </div>
+
+                <!-- DESAFIO 4 -->
+                <div id="q4-box" class="bg-slate-900/80 border border-slate-700 p-5 rounded-xl space-y-3">
+                    <span class="text-xs font-bold text-purple-400 uppercase tracking-wider">Desafio #4 • Responsabilidade Compartilhada</span>
+                    <p class="text-xs text-slate-200">
+                        De acordo com a PNRS, de quem é a responsabilidade pela destinação ambientalmente adequada dos resíduos?
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs">
+                        <button onclick="checkAnswer(4, 'A', this)" class="bg-slate-800 hover:bg-slate-700 p-3 rounded-lg border border-slate-700 text-left">A) Exclusivamente da prefeitura e do poder público municipal.</button>
+                        <button onclick="checkAnswer(4, 'B', this)" class="bg-slate-800 hover:bg-slate-700 p-3 rounded-lg border border-slate-700 text-left">B) Apenas dos fabricantes estrangeiros de hardware.</button>
+                        <button onclick="checkAnswer(4, 'C', this)" class="bg-slate-800 hover:bg-slate-700 p-3 rounded-lg border border-slate-700 text-left">C) Compartilhada entre fabricantes, importadores, distribuidores, comerciantes, consumidores e poder público.</button>
+                    </div>
+                    <div id="fb4" class="hidden p-3 rounded-lg text-xs font-medium"></div>
+                </div>
+
+            </div>
+
+            <!-- RESULTADO FINAL -->
+            <div id="badge-container" class="hidden bg-indigo-950/80 border border-indigo-500/50 p-6 rounded-xl text-center space-y-3">
+                <div class="w-16 h-16 bg-indigo-500/20 text-indigo-400 border border-indigo-500/30 rounded-full flex items-center justify-center mx-auto text-3xl">
+                    <i class="fa-solid fa-gavel"></i>
+                </div>
+                <h4 class="text-lg font-bold text-white">Parabéns! Você concluiu a Parte III!</h4>
+                <p class="text-xs text-slate-300">
+                    Você aprendeu toda a legislação ambiental (PNRS, Decreto 10.240, CONAMA 401), logística reversa e proteção de dados no descarte.
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-800 border-t border-slate-700 py-4 text-center text-xs text-slate-400 mt-8">
+        <p>SENAC • Técnico em Informática | Material Didático - Parte III: Legislação Ambiental</p>
+    </footer>
+
+    <!-- LÓGICA DO JOGO -->
+    <script>
+        let score = 0;
+        let solved = { 1: false, 2: false, 3: false, 4: false };
+
+        const answers = {
+            1: 'B',
+            2: 'B',
+            3: 'A',
+            4: 'C'
+        };
+
+        function checkAnswer(qNum, choice, btn) {
+            if(solved[qNum]) return;
+
+            let fbEl = document.getElementById(`fb${qNum}`);
+            fbEl.classList.remove('hidden');
+
+            if(choice === answers[qNum]) {
+                solved[qNum] = true;
+                score += 100;
+                document.getElementById('score-display').innerText = `${score} XP`;
+
+                btn.className = "bg-indigo-900/60 border border-indigo-500 text-indigo-200 p-3 rounded-lg text-xs text-left font-semibold";
+                fbEl.className = "p-3 rounded-lg text-xs font-medium bg-indigo-950/60 border border-indigo-500/40 text-indigo-300";
+                fbEl.innerHTML = '<i class="fa-solid fa-circle-check mr-1.5"></i> <strong>Correto!</strong> Você demonstrou pleno domínio do marco legal e das obrigações do técnico.';
+
+                updateProgress();
+            } else {
+                btn.className = "bg-red-900/40 border border-red-500/50 text-red-200 p-3 rounded-lg text-xs text-left";
+                fbEl.className = "p-3 rounded-lg text-xs font-medium bg-red-950/60 border border-red-500/40 text-red-300";
+                fbEl.innerHTML = '<i class="fa-solid fa-circle-xmark mr-1.5"></i> <strong>Incorreto!</strong> Consulte o resumo legislativo acima e tente novamente.';
+                
+                setTimeout(() => {
+                    btn.className = "bg-slate-800 hover:bg-slate-700 p-3 rounded-lg border border-slate-700 text-left text-xs";
+                }, 1500);
+            }
+        }
+
+        function updateProgress() {
+            let count = Object.values(solved).filter(Boolean).length;
+            document.getElementById('game-progress').innerText = `${count} / 4`;
+
+            if(count === 4) {
+                document.getElementById('badge-container').classList.remove('hidden');
+            }
+        }
+    </script>
+</body>
+</html>

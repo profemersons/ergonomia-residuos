@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal de Estudos - TI, Sustentabilidade e Ergonomia | SENAC</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        senacOrange: '#F37021',
+                        senacBlue: '#004A8F',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #0f172a;
+        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #475569; }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col justify-between selection:bg-indigo-500 selection:text-white">
+
+    <!-- Header / Navbar -->
+    <header class="bg-slate-800 border-b border-slate-700 sticky top-0 z-50 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <div class="bg-gradient-to-tr from-indigo-600 to-blue-500 p-2.5 rounded-xl text-white shadow-lg">
+                    <i class="fa-solid fa-graduation-cap text-xl"></i>
+                </div>
+                <div>
+                    <h1 class="text-lg font-bold tracking-tight text-white flex items-center gap-2">
+                        SENAC Técnico em Informática 
+                        <span class="text-xs bg-indigo-500/20 text-indigo-400 px-2 py-0.5 rounded-full border border-indigo-500/30">Portal do Aluno</span>
+                    </h1>
+                    <p class="text-xs text-slate-400">Guia de Conteúdos, Exercícios e Estudos de Caso</p>
+                </div>
+            </div>
+
+            <div class="flex items-center space-x-2 mt-2 sm:mt-0">
+                <button onclick="resetProgress()" class="text-xs bg-slate-700 hover:bg-slate-600 text-slate-300 px-3 py-1.5 rounded-lg border border-slate-600 font-medium transition flex items-center gap-1.5">
+                    <i class="fa-solid fa-rotate-left"></i> Resetar Progresso
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="flex-1 max-w-5xl w-full mx-auto p-4 sm:p-6 space-y-8">
+
+        <!-- Banner de Boas-Vindas e Progresso -->
+        <div class="bg-gradient-to-r from-slate-800 via-slate-800 to-indigo-950/80 border border-slate-700 rounded-2xl p-6 sm:p-8 shadow-xl relative overflow-hidden">
+            <div class="absolute -right-10 -bottom-10 opacity-10 text-indigo-400 pointer-events-none">
+                <i class="fa-solid fa-book-bookmark text-9xl"></i>
+            </div>
+            <div class="max-w-3xl space-y-4">
+                <span class="text-indigo-400 text-xs font-bold uppercase tracking-wider bg-indigo-500/10 px-3 py-1 rounded-full border border-indigo-500/20 inline-block">
+                    Painel Principal de Aprendizagem
+                </span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-white">
+                    Trilha de Aprendizagem & Trabalhos Práticos
+                </h2>
+                <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                    Acesse abaixo as etapas teóricas, listas de exercícios e atividades avaliativas. Marque cada item conforme conclui a leitura ou envio no MS Teams.
+                </p>
+                
+                <!-- Barra de Progresso do Aluno -->
+                <div class="pt-2">
+                    <div class="flex justify-between items-center text-xs font-semibold mb-2 text-slate-300">
+                        <span>Seu Progresso Total:</span>
+                        <span id="progress-percentage" class="text-indigo-400 font-bold text-sm">0%</span>
+                    </div>
+                    <div class="w-full bg-slate-900 rounded-full h-3 border border-slate-700 overflow-hidden">
+                        <div id="progress-bar" class="bg-gradient-to-r from-indigo-500 to-emerald-400 h-full w-0 transition-all duration-500"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SEÇÃO 1: MÓDULOS TEÓRICOS -->
+        <div class="space-y-4">
+            <h3 class="text-lg font-bold text-white flex items-center gap-2 border-b border-slate-800 pb-2">
+                <i class="fa-solid fa-book-open text-indigo-400"></i> Módulos Teóricos de Leitura
+            </h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="modules-list">
+                <!-- Parte I -->
+                <div class="bg-slate-800 border border-slate-700 hover:border-slate-600 rounded-xl p-4 transition flex items-center justify-between group">
+                    <div class="flex items-center space-x-3">
+                        <input type="checkbox" id="check-parte-i" onchange="toggleItem('parte-i')" class="w-5 h-5 rounded border-slate-700 text-indigo-600 focus:ring-indigo-500 bg-slate-900 cursor-pointer">
+                        <div>
+                            <a href="parte-i.html" class="font-semibold text-slate-100 group-hover:text-indigo-400 transition text-sm sm:text-base block">
+                                PARTE I — Sustentabilidade e Tecnologia
+                            </a>
+                            <span class="text-xs text-slate-400">Leitura obrigatória</span>
+                        </div>
+                    </div>
+                    <a href="parte-i.html" class="bg-slate-700 hover:bg-indigo-600 text-slate-200 hover:text-white p-2.5 rounded-lg text-xs font-medium transition">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Parte II -->
+                <div class="bg-slate-800 border border-slate-700 hover:border-slate-600 rounded-xl p-4 transition flex items-center justify-between group">
+                    <div class="flex items-center space-x-3">
+                        <input type="checkbox" id="check-parte-ii" onchange="toggleItem('parte-ii')" class="w-5 h-5 rounded border-slate-700 text-indigo-600 focus:ring-indigo-500 bg-slate-900 cursor-pointer">
+                        <div>
+                            <a href="parte-ii.html" class="font-semibold text-slate-100 group-hover:text-indigo-400 transition text-sm sm:text-base block">
+                                PARTE II — Resíduos de Equipamentos Eletroeletrônicos
+                            </a>
+                            <span class="text-xs text-slate-400">Leitura obrigatória</span>
+                        </div>
+                    </div>
+                    <a href="parte-ii.html" class="bg-slate-700 hover:bg-indigo-600 text-slate-200 hover:text-white p-2.5 rounded-lg text-xs font-medium transition">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Parte III -->
+                <div class="bg-slate-800 border border-slate-700 hover:border-slate-600 rounded-xl p-4 transition flex items-center justify-between group">
+                    <div class="flex items-center space-x-3">
+                        <input type="checkbox" id="check-parte-iii" onchange="toggleItem('parte-iii')" class="w-5 h-5 rounded border-slate-700 text-indigo-600 focus:ring-indigo-500 bg-slate-900 cursor-pointer">
+                        <div>
+                            <a href="parte-iii.html" class="font-semibold text-slate-100 group-hover:text-indigo-400 transition text-sm sm:text-base block">
+                                PARTE III — Legislação Ambiental
+                            </a>
+                            <span class="text-xs text-slate-400">Leitura obrigatória</span>
+                        </div>
+                    </div>
+                    <a href="parte-iii.html" class="bg-slate-700 hover:bg-indigo-600 text-slate-200 hover:text-white p-2.5 rounded-lg text-xs font-medium transition">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Parte IV -->
+                <div class="bg-slate-800 border border-slate-700 hover:border-slate-600 rounded-xl p-4 transition flex items-center justify-between group">
+                    <div class="flex items-center space-x-3">
+                        <input type="checkbox" id="check-parte-iv" onchange="toggleItem('parte-iv')" class="w-5 h-5 rounded border-slate-700 text-indigo-600 focus:ring-indigo-500 bg-slate-900 cursor-pointer">
+                        <div>
+                            <a href="parte-iv.html" class="font-semibold text-slate-100 group-hover:text-indigo-400 transition text-sm sm:text-base block">
+                                PARTE IV — Manutenção, Consumo e Sustentabilidade
+                            </a>
+                            <span class="text-xs text-slate-400">Leitura obrigatória</span>
+                        </div>
+                    </div>
+                    <a href="parte-iv.html" class="bg-slate-700 hover:bg-indigo-600 text-slate-200 hover:text-white p-2.5 rounded-lg text-xs font-medium transition">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Parte V -->
+                <div class="bg-slate-800 border border-slate-700 hover:border-slate-600 rounded-xl p-4 transition flex items-center justify-between group">
+                    <div class="flex items-center space-x-3">
+                        <input type="checkbox" id="check-parte-v" onchange="toggleItem('parte-v')" class="w-5 h-5 rounded border-slate-700 text-indigo-600 focus:ring-indigo-500 bg-slate-900 cursor-pointer">
+                        <div>
+                            <a href="parte-v.html" class="font-semibold text-slate-100 group-hover:text-indigo-400 transition text-sm sm:text-base block">
+                                PARTE V — Segurança e Ergonomia
+                            </a>
+                            <span class="text-xs text-slate-400">Leitura obrigatória</span>
+                        </div>
+                    </div>
+                    <a href="parte-v.html" class="bg-slate-700 hover:bg-indigo-600 text-slate-200 hover:text-white p-2.5 rounded-lg text-xs font-medium transition">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Parte VI -->
+                <div class="bg-slate-800 border border-slate-700 hover:border-slate-600 rounded-xl p-4 transition flex items-center justify-between group">
+                    <div class="flex items-center space-x-3">
+                        <input type="checkbox" id="check-parte-vi" onchange="toggleItem('parte-vi')" class="w-5 h-5 rounded border-slate-700 text-indigo-600 focus:ring-indigo-500 bg-slate-900 cursor-pointer">
+                        <div>
+                            <a href="parte-vi.html" class="font-semibold text-slate-100 group-hover:text-indigo-400 transition text-sm sm:text-base block">
+                                PARTE VI — Sustentabilidade na Manutenção
+                            </a>
+                            <span class="text-xs text-slate-400">Leitura obrigatória</span>
+                        </div>
+                    </div>
+                    <a href="parte-vi.html" class="bg-slate-700 hover:bg-indigo-600 text-slate-200 hover:text-white p-2.5 rounded-lg text-xs font-medium transition">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Parte VII -->
+                <div class="bg-slate-800 border border-slate-700 hover:border-slate-600 rounded-xl p-4 transition flex items-center justify-between group md:col-span-2">
+                    <div class="flex items-center space-x-3">
+                        <input type="checkbox" id="check-parte-vii" onchange="toggleItem('parte-vii')" class="w-5 h-5 rounded border-slate-700 text-indigo-600 focus:ring-indigo-500 bg-slate-900 cursor-pointer">
+                        <div>
+                            <a href="parte-vii.html" class="font-semibold text-slate-100 group-hover:text-indigo-400 transition text-sm sm:text-base block">
+                                PARTE VII — Segurança da Informação e Descarte
+                            </a>
+                            <span class="text-xs text-slate-400">Leitura obrigatória</span>
+                        </div>
+                    </div>
+                    <a href="parte-vii.html" class="bg-slate-700 hover:bg-indigo-600 text-slate-200 hover:text-white p-2.5 rounded-lg text-xs font-medium transition">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- SEÇÃO 2: ATIVIDADES PRÁTICAS E AVALIAÇÕES -->
+        <div class="space-y-4 pt-4">
+            <h3 class="text-lg font-bold text-white flex items-center gap-2 border-b border-slate-800 pb-2">
+                <i class="fa-solid fa-pen-to-square text-emerald-400"></i> Exercícios e Atividades Práticas (Exportação PDF)
+            </h3>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                
+                <!-- Questões Gerais -->
+                <div class="bg-slate-800 border border-slate-700 hover:border-indigo-500/50 rounded-xl p-5 transition flex flex-col justify-between space-y-4">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <span class="p-2 bg-blue-500/10 text-blue-400 rounded-lg text-sm"><i class="fa-solid fa-list-check"></i></span>
+                            <input type="checkbox" id="check-questoes" onchange="toggleItem('questoes')" class="w-5 h-5 rounded border-slate-700 text-indigo-600 focus:ring-indigo-500 bg-slate-900 cursor-pointer">
+                        </div>
+                        <h4 class="font-bold text-white text-base">Banco de Questões</h4>
+                        <p class="text-xs text-slate-400">Lista de fixação do conteúdo ministrado nos módulos teóricos.</p>
+                    </div>
+                    <a href="questoes.html" class="w-full bg-slate-700 hover:bg-indigo-600 text-white text-center py-2.5 rounded-lg text-xs font-bold transition block">
+                        Acessar Questões
+                    </a>
+                </div>
+
+                <!-- Estudo de Caso - Descarte (Laboratório de Informática) -->
+                <div class="bg-slate-800 border border-slate-700 hover:border-indigo-500/50 rounded-xl p-5 transition flex flex-col justify-between space-y-4">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <span class="p-2 bg-emerald-500/10 text-emerald-400 rounded-lg text-sm"><i class="fa-solid fa-microchip"></i></span>
+                            <input type="checkbox" id="check-estudo-descarte" onchange="toggleItem('estudo-descarte')" class="w-5 h-5 rounded border-slate-700 text-indigo-600 focus:ring-indigo-500 bg-slate-900 cursor-pointer">
+                        </div>
+                        <h4 class="font-bold text-white text-base">Estudo: Descarte (Lab. Informática)</h4>
+                        <p class="text-xs text-slate-400">Caso 58: Análise do laboratório de informática e descarte consciente.</p>
+                    </div>
+                    <a href="estudo-descarte.html" class="w-full bg-slate-700 hover:bg-indigo-600 text-white text-center py-2.5 rounded-lg text-xs font-bold transition block">
+                        Acessar Estudo Descarte
+                    </a>
+                </div>
+
+                <!-- Estudo de Caso - Ergonomia -->
+                <div class="bg-slate-800 border border-slate-700 hover:border-indigo-500/50 rounded-xl p-5 transition flex flex-col justify-between space-y-4">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-start">
+                            <span class="p-2 bg-amber-500/10 text-amber-400 rounded-lg text-sm"><i class="fa-solid fa-chair"></i></span>
+                            <input type="checkbox" id="check-estudo-ergonomia" onchange="toggleItem('estudo-ergonomia')" class="w-5 h-5 rounded border-slate-700 text-indigo-600 focus:ring-indigo-500 bg-slate-900 cursor-pointer">
+                        </div>
+                        <h4 class="font-bold text-white text-base">Estudo: Ergonomia (NR-17)</h4>
+                        <p class="text-xs text-slate-400">Proposta de adequação ergonômica de estações de trabalho de TI.</p>
+                    </div>
+                    <a href="estudo-ergonomia.html" class="w-full bg-slate-700 hover:bg-indigo-600 text-white text-center py-2.5 rounded-lg text-xs font-bold transition block">
+                        Acessar Estudo Ergonomia
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-800 border-t border-slate-700 py-4 text-center text-xs text-slate-400 mt-8">
+        <p>SENAC • Técnico em Informática | Central de Conteúdos</p>
+    </footer>
+
+    <!-- LOGICA DE GERENCIAMENTO DE PROGRESSO COM LOCALSTORAGE -->
+    <script>
+        const items = [
+            'parte-i',
+            'parte-ii',
+            'parte-iii',
+            'parte-iv',
+            'parte-v',
+            'parte-vi',
+            'parte-vii',
+            'questoes',
+            'estudo-descarte',
+            'estudo-ergonomia'
+        ];
+
+        function loadProgress() {
+            let completedCount = 0;
+            items.forEach(id => {
+                const isCompleted = localStorage.getItem(`read_${id}`) === 'true';
+                const checkbox = document.getElementById(`check-${id}`);
+                if (checkbox) {
+                    checkbox.checked = isCompleted;
+                }
+                if (isCompleted) completedCount++;
+            });
+
+            updateProgressBar(completedCount);
+        }
+
+        function toggleItem(id) {
+            const checkbox = document.getElementById(`check-${id}`);
+            if (checkbox) {
+                localStorage.setItem(`read_${id}`, checkbox.checked);
+            }
+            loadProgress();
+        }
+
+        function updateProgressBar(completedCount) {
+            const percentage = Math.round((completedCount / items.length) * 100);
+            document.getElementById('progress-percentage').innerText = `${percentage}%`;
+            document.getElementById('progress-bar').style.width = `${percentage}%`;
+        }
+
+        function resetProgress() {
+            if (confirm('Deseja realmente zerar o seu controle de leitura?')) {
+                items.forEach(id => {
+                    localStorage.removeItem(`read_${id}`);
+                });
+                loadProgress();
+            }
+        }
+
+        // Carrega o progresso ao inicializar a tela
+        document.addEventListener('DOMContentLoaded', loadProgress);
+    </script>
+</body>
+</html>

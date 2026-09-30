@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudo de Caso Final - Gestão de Descarte e Ergonomia | SENAC</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- html2pdf CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        senacOrange: '#F37021',
+                        senacBlue: '#004A8F',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #0f172a;
+        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #475569; }
+
+        /* Regras de quebra de página e fundo para exportação em PDF */
+        .pdf-block {
+            page-break-inside: avoid;
+            break-inside: avoid;
+        }
+
+        .rendering-pdf {
+            background-color: #0f172a !important;
+            color: #f8fafc !important;
+        }
+        .rendering-pdf textarea, .rendering-pdf input {
+            background-color: #0f172a !important;
+            color: #ffffff !important;
+            border-color: #334155 !important;
+        }
+
+        @media print {
+            .no-print { display: none !important; }
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col justify-between selection:bg-indigo-500 selection:text-white">
+
+    <!-- Header / Navbar -->
+    <header class="bg-slate-800 border-b border-slate-700 sticky top-0 z-50 shadow-md no-print">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <div class="bg-gradient-to-tr from-indigo-600 to-blue-500 p-2.5 rounded-xl text-white shadow-lg">
+                    <i class="fa-solid fa-recycle text-xl"></i>
+                </div>
+                <div>
+                    <h1 class="text-lg font-bold tracking-tight text-white flex items-center gap-2">
+                        SENAC Técnico em Informática 
+                        <span class="text-xs bg-indigo-500/20 text-indigo-400 px-2 py-0.5 rounded-full border border-indigo-500/30">Estudo de Caso Final</span>
+                    </h1>
+                    <p class="text-xs text-slate-400">Plano Integrado de Sustentabilidade, Descarte e Ergonomia</p>
+                </div>
+            </div>
+
+            <div class="flex items-center space-x-2 mt-2 sm:mt-0">
+                <span class="text-xs bg-emerald-500/10 text-emerald-400 px-3 py-1 rounded-full border border-emerald-500/20 font-medium">
+                    <i class="fa-solid fa-file-pdf mr-1"></i> Entrega via MS Teams
+                </span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="flex-1 max-w-4xl w-full mx-auto p-4 sm:p-6 space-y-8" id="report-container">
+
+        <!-- Banner de Capa -->
+        <div class="bg-gradient-to-r from-slate-800 via-slate-800 to-indigo-950/80 border border-slate-700 rounded-2xl p-6 sm:p-8 shadow-xl relative overflow-hidden pdf-block">
+            <div class="absolute -right-10 -bottom-10 opacity-10 text-indigo-400 pointer-events-none">
+                <i class="fa-solid fa-dumpster-fire text-9xl"></i>
+            </div>
+            <div class="max-w-3xl">
+                <span class="text-indigo-400 text-xs font-bold uppercase tracking-wider bg-indigo-500/10 px-3 py-1 rounded-full border border-indigo-500/20 inline-block mb-3">
+                    Atividade Avaliativa Final • Módulo de TI
+                </span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-white mb-3">
+                    ESTUDO DE CASO FINAL: ADEQUAÇÃO DE TI E DESCARTE DE LIXO ELETRÔNICO
+                </h2>
+                <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                    <strong>Cenário Geral:</strong> Uma empresa de tecnologia está renovando o seu parque tecnológico e desativando 30 computadores antigos. Além de relatar problemas de saúde entre os colaboradores decorrentes da má estruturação das estações de trabalho, a empresa precisa cumprir as exigências legais para o descarte ambientalmente correto do e-lixo e segurança de dados.
+                </p>
+            </div>
+        </div>
+
+        <!-- FORMULÁRIO DE RESPOSTAS -->
+        <form id="final-case-form" class="space-y-6">
+
+            <!-- IDENTIFICAÇÃO DO ESTUDANTE -->
+            <div class="bg-slate-800 border border-indigo-500/40 rounded-2xl p-5 sm:p-6 shadow-md space-y-4 pdf-block">
+                <h3 class="text-base font-bold text-white flex items-center gap-2 border-b border-slate-700 pb-3">
+                    <i class="fa-solid fa-id-card text-indigo-400"></i> Identificação do Estudante
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs sm:text-sm">
+                    <div class="sm:col-span-2">
+                        <label class="block text-slate-300 font-medium mb-1" for="student-name">Nome Completo *</label>
+                        <input type="text" id="student-name" required placeholder="Digite seu nome completo" class="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-slate-100 focus:outline-none focus:border-indigo-500 transition">
+                    </div>
+                    <div>
+                        <label class="block text-slate-300 font-medium mb-1" for="student-class">Turma / Período *</label>
+                        <input type="text" id="student-class" required placeholder="Ex: TI-2026.1" class="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-slate-100 focus:outline-none focus:border-indigo-500 transition">
+                    </div>
+                </div>
+            </div>
+
+            <!-- ETAPA 1: SEGURANÇA DA INFORMAÇÃO -->
+            <div class="bg-slate-800 border border-slate-700 rounded-2xl p-5 sm:p-6 shadow-md space-y-4 pdf-block">
+                <div class="flex items-center gap-3 border-b border-slate-700 pb-3">
+                    <span class="w-8 h-8 bg-indigo-500/20 text-indigo-400 rounded-lg flex items-center justify-center font-bold text-sm">1</span>
+                    <h3 class="text-base font-bold text-white">Triagem e Higienização de Dados nos HDs</h3>
+                </div>
+                <p class="text-xs text-slate-400">Antes do descarte ou doação das máquinas, é essencial garantir a proteção das informações confidenciais armazenadas nos discos rígidos.</p>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-300 mb-2">Qual procedimento o técnico de TI deve realizar para sanitarizar os dados dos computadores com segurança?</label>
+                    <textarea id="ans-dados" rows="3" required placeholder="Explique sobre métodos de sobrescrita de dados, formatação física/lógica e destruição de discos..." class="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-xs sm:text-sm text-slate-100 focus:outline-none focus:border-indigo-500 transition"></textarea>
+                </div>
+            </div>
+
+            <!-- ETAPA 2: LEGISLAÇÃO E LOGÍSTICA REVERSA -->
+            <div class="bg-slate-800 border border-slate-700 rounded-2xl p-5 sm:p-6 shadow-md space-y-4 pdf-block">
+                <div class="flex items-center gap-3 border-b border-slate-700 pb-3">
+                    <span class="w-8 h-8 bg-indigo-500/20 text-indigo-400 rounded-lg flex items-center justify-center font-bold text-sm">2</span>
+                    <h3 class="text-base font-bold text-white">Destinação do Lixo Eletrônico (Lei nº 12.305/2010 e Decreto nº 10.240/2020)</h3>
+                </div>
+                <p class="text-xs text-slate-400">A empresa necessita descartar placas-mãe, fontes queimadas e monitores CRT quebrados de forma ambientalmente correta.</p>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-300 mb-2">Descreva o fluxo de logística reversa e quais entidades/locais devem receber esses componentes:</label>
+                    <textarea id="ans-legislacao" rows="3" required placeholder="Especifique os pontos de entrega voluntária (PEV), cooperativas e a responsabilidade compartilhada..." class="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-xs sm:text-sm text-slate-100 focus:outline-none focus:border-indigo-500 transition"></textarea>
+                </div>
+            </div>
+
+            <!-- ETAPA 3: REUTILIZAÇÃO E ECONOMIA CIRCULAR -->
+            <div class="bg-slate-800 border border-slate-700 rounded-2xl p-5 sm:p-6 shadow-md space-y-4 pdf-block">
+                <div class="flex items-center gap-3 border-b border-slate-700 pb-3">
+                    <span class="w-8 h-8 bg-indigo-500/20 text-indigo-400 rounded-lg flex items-center justify-center font-bold text-sm">3</span>
+                    <h3 class="text-base font-bold text-white">Aproveitamento e Upcycling de Componentes</h3>
+                </div>
+                <p class="text-xs text-slate-400">Nem todo o lote de 30 computadores está inutilizável. Algumas peças ainda funcionam perfeitamente.</p>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-300 mb-2">Proponha uma solução para reaproveitamento de componentes funcionais (RAM, gabinetes, cabos, etc.):</label>
+                    <textarea id="ans-reutilizacao" rows="3" required placeholder="Como a equipe pode reutilizar peças internamente ou promover doações sociais?" class="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-xs sm:text-sm text-slate-100 focus:outline-none focus:border-indigo-500 transition"></textarea>
+                </div>
+            </div>
+
+            <!-- ETAPA 4: PLANO ERGONÔMICO UNIFICADO (NR-17) -->
+            <div class="bg-slate-800 border border-slate-700 rounded-2xl p-5 sm:p-6 shadow-md space-y-4 pdf-block">
+                <div class="flex items-center gap-3 border-b border-slate-700 pb-3">
+                    <span class="w-8 h-8 bg-indigo-500/20 text-indigo-400 rounded-lg flex items-center justify-center font-bold text-sm">4</span>
+                    <h3 class="text-base font-bold text-white">Proposta Global de Ergonomia para as Novas Estações</h3>
+                </div>
+                <p class="text-xs text-slate-400">Na compra dos novos equipamentos, a empresa quer montar estações de trabalho de acordo com a NR-17.</p>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-300 mb-2">Resuma os principais requisitos a serem exigidos na compra das novas mesas, cadeiras e periféricos:</label>
+                    <textarea id="ans-ergonomia-geral" rows="3" required placeholder="Detalhe as exigências de regulagem, apoios, espaço físico e iluminação para a nova sala de TI..." class="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-xs sm:text-sm text-slate-100 focus:outline-none focus:border-indigo-500 transition"></textarea>
+                </div>
+            </div>
+
+            <!-- BOTOES DE AÇÃO -->
+            <div class="text-center pt-4 no-print flex flex-col sm:flex-row justify-center gap-4">
+                <button type="button" onclick="generatePDF()" class="bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-3.5 px-8 rounded-xl shadow-lg transition duration-200 flex items-center justify-center gap-2 text-sm sm:text-base">
+                    <i class="fa-solid fa-file-arrow-down text-lg"></i> Finalizar e Exportar PDF para o MS Teams
+                </button>
+            </div>
+
+        </form>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-800 border-t border-slate-700 py-4 text-center text-xs text-slate-400 mt-8 no-print">
+        <p>SENAC • Técnico em Informática | Estudo de Caso Final de Sustentabilidade & Ergonomia</p>
+    </footer>
+
+    <!-- SCRIPT DE GERAÇÃO DO PDF -->
+    <script>
+        function generatePDF() {
+            const name = document.getElementById('student-name').value.trim();
+            const studentClass = document.getElementById('student-class').value.trim();
+
+            if (!name || !studentClass) {
+                alert('Por favor, preencha o seu Nome e Turma antes de gerar o PDF.');
+                document.getElementById('student-name').focus();
+                return;
+            }
+
+            const element = document.getElementById('report-container');
+            element.classList.add('rendering-pdf');
+
+            const opt = {
+                margin:       [8, 8, 8, 8],
+                filename:     `Estudo_De_Caso_Final_${name.replace(/\s+/g, '_')}.pdf`,
+                image:        { type: 'jpeg', quality: 0.98 },
+                html2canvas:  { 
+                    scale: 2, 
+                    useCORS: true, 
+                    backgroundColor: '#0f172a',
+                    scrollY: 0
+                },
+                jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' },
+                pagebreak:    { mode: ['avoid-all', 'css', 'legacy'] }
+            };
+
+            html2pdf().set(opt).from(element).save().then(() => {
+                element.classList.remove('rendering-pdf');
+            }).catch(() => {
+                element.classList.remove('rendering-pdf');
+            });
+        }
+    </script>
+</body>
+</html>

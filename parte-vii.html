@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parte VII - Segurança da Informação e Descarte | SENAC</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        senacOrange: '#F37021',
+                        senacBlue: '#004A8F',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #475569; }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col justify-between selection:bg-purple-500 selection:text-white">
+
+    <!-- Header / Navbar -->
+    <header class="bg-slate-800 border-b border-slate-700 sticky top-0 z-50 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <div class="bg-gradient-to-tr from-purple-600 to-indigo-500 p-2.5 rounded-xl text-white shadow-lg">
+                    <i class="fa-solid fa-user-shield text-xl"></i>
+                </div>
+                <div>
+                    <h1 class="text-lg font-bold tracking-tight text-white flex items-center gap-2">
+                        SENAC Técnico em Informática 
+                        <span class="text-xs bg-purple-500/20 text-purple-400 px-2 py-0.5 rounded-full border border-purple-500/30">Parte VII</span>
+                    </h1>
+                    <p class="text-xs text-slate-400">Segurança da Informação, LGPD e Sanitização no Descarte de Ativos</p>
+                </div>
+            </div>
+
+            <div class="flex items-center space-x-4 mt-2 sm:mt-0">
+                <div class="bg-slate-900/80 border border-slate-700 px-3 py-1.5 rounded-lg flex items-center space-x-2">
+                    <i class="fa-solid fa-bolt text-amber-400"></i>
+                    <span class="text-xs text-slate-400 font-medium">Pontuação:</span>
+                    <span id="score-display" class="text-sm font-bold text-amber-400">0 XP</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 space-y-8">
+
+        <!-- Banner de Capa da Parte VII -->
+        <div class="bg-gradient-to-r from-slate-800 via-slate-800 to-purple-950/80 border border-slate-700 rounded-2xl p-6 sm:p-8 shadow-xl relative overflow-hidden">
+            <div class="absolute -right-10 -bottom-10 opacity-10 text-purple-400 pointer-events-none">
+                <i class="fa-solid fa-key text-9xl"></i>
+            </div>
+            <div class="max-w-3xl">
+                <span class="text-purple-400 text-xs font-bold uppercase tracking-wider bg-purple-500/10 px-3 py-1 rounded-full border border-purple-500/20 inline-block mb-3">
+                    Material Didático Completo • Parte VII
+                </span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-white mb-3">
+                    PARTE VII — SEGURANÇA DA INFORMAÇÃO E DESCARTE DE ATIVOS
+                </h2>
+                <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                    Aprenda a mapear riscos corporativos de vazamento de dados no descarte de hardware, auditar todos os dispositivos de memória e aplicar o procedimento padrão de 6 etapas para a eliminação segura de informações.
+                </p>
+            </div>
+        </div>
+
+        <!-- 43. DADOS TAMBÉM SÃO UM RISCO -->
+        <section class="bg-slate-800 border border-slate-700 rounded-2xl p-6 shadow-md space-y-4">
+            <div class="flex items-center gap-3 border-b border-slate-700 pb-3">
+                <div class="p-2.5 rounded-xl bg-purple-500/10 border border-purple-500/20 text-purple-400">
+                    <i class="fa-solid fa-database text-xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white">43. DADOS TAMBÉM SÃO UM RISCO NO DESCARTE</h3>
+            </div>
+            <p class="text-sm text-slate-300 leading-relaxed">
+                Imagine que uma empresa decida descartar 20 computadores antigos. Cada unidade contém um disco rígido ou SSD com histórico de navegação, senhas salvas, planilhas financeiras e documentos sensíveis. Se esses equipamentos forem destinados sem tratamento adequado, o risco de exposição de dados é imenso.
+            </p>
+
+            <div class="bg-slate-900/80 border border-purple-500/30 p-4 rounded-xl space-y-3">
+                <span class="text-xs font-bold text-purple-400 uppercase tracking-wider block">
+                    Dispositivos e Componentes Sujeitos à Mapeamento Antes da Destinação:
+                </span>
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 text-xs">
+                    <div class="bg-slate-800 p-3 rounded-lg border border-slate-700 text-slate-300 flex items-center gap-2">
+                        <i class="fa-solid fa-hard-drive text-purple-400"></i>
+                        <span>Discos Rígidos (HD)</span>
+                    </div>
+                    <div class="bg-slate-800 p-3 rounded-lg border border-slate-700 text-slate-300 flex items-center gap-2">
+                        <i class="fa-solid fa-microchip text-purple-400"></i>
+                        <span>Unidades SSD</span>
+                    </div>
+                    <div class="bg-slate-800 p-3 rounded-lg border border-slate-700 text-slate-300 flex items-center gap-2">
+                        <i class="fa-solid fa-sd-card text-purple-400"></i>
+                        <span>Cartões de Memória</span>
+                    </div>
+                    <div class="bg-slate-800 p-3 rounded-lg border border-slate-700 text-slate-300 flex items-center gap-2">
+                        <i class="fa-solid fa-usb text-purple-400"></i>
+                        <span>Pendrives</span>
+                    </div>
+                    <div class="bg-slate-800 p-3 rounded-lg border border-slate-700 text-slate-300 flex items-center gap-2">
+                        <i class="fa-solid fa-laptop text-purple-400"></i>
+                        <span>Notebooks</span>
+                    </div>
+                    <div class="bg-slate-800 p-3 rounded-lg border border-slate-700 text-slate-300 flex items-center gap-2">
+                        <i class="fa-solid fa-mobile-screen-button text-purple-400"></i>
+                        <span>Celulares/Tablets</span>
+                    </div>
+                    <div class="bg-slate-800 p-3 rounded-lg border border-slate-700 text-slate-300 flex items-center gap-2">
+                        <i class="fa-solid fa-print text-purple-400"></i>
+                        <span>Impressoras com HD</span>
+                    </div>
+                    <div class="bg-slate-800 p-3 rounded-lg border border-slate-700 text-slate-300 flex items-center gap-2">
+                        <i class="fa-solid fa-network-wired text-purple-400"></i>
+                        <span>Roteadores e Switches</span>
+                    </div>
+                    <div class="bg-slate-800 p-3 rounded-lg border border-slate-700 text-slate-300 flex items-center gap-2 col-span-2">
+                        <i class="fa-solid fa-box-archive text-purple-400"></i>
+                        <span>Outros Mídias/Aparelhos de Armazenamento</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 44. PROCEDIMENTO BÁSICO -->
+        <section class="bg-slate-800 border border-slate-700 rounded-2xl p-6 shadow-md space-y-4">
+            <div class="flex items-center gap-3 border-b border-slate-700 pb-3">
+                <div class="p-2.5 rounded-xl bg-indigo-500/10 border border-indigo-500/20 text-indigo-400">
+                    <i class="fa-solid fa-list-check text-xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white">44. PROCEDIMENTO BÁSICO DE SEGURANÇA E HIGIENIZAÇÃO DE DADOS</h3>
+            </div>
+            <p class="text-sm text-slate-300 leading-relaxed">
+                Antes de liberar qualquer hardware para reciclagem, doação ou leilão, o técnico de suporte deve executar rigorosamente a seguinte rotina operacional:
+            </p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 text-xs">
+                <!-- Passo 1 -->
+                <div class="bg-slate-900/80 border border-slate-700 p-4 rounded-xl space-y-2 relative overflow-hidden">
+                    <div class="text-purple-400 font-extrabold text-2xl">01</div>
+                    <span class="font-bold text-white block uppercase tracking-wider">Identificar o Equipamento</span>
+                    <p class="text-slate-300">Mapear o ativo com precisão. Exemplo:<br><em class="text-purple-300">Patrimônio: 02345 | Tipo: Desktop | Armazenamento: SSD 512 GB</em></p>
+                </div>
+                <!-- Passo 2 -->
+                <div class="bg-slate-900/80 border border-slate-700 p-4 rounded-xl space-y-2 relative overflow-hidden">
+                    <div class="text-purple-400 font-extrabold text-2xl">02</div>
+                    <span class="font-bold text-white block uppercase tracking-wider">Verificar os Dados</span>
+                    <p class="text-slate-300">Analisar se existem partições, arquivos corporativos, contas conectadas ou dados sigilosos gravados na unidade.</p>
+                </div>
+                <!-- Passo 3 -->
+                <div class="bg-slate-900/80 border border-slate-700 p-4 rounded-xl space-y-2 relative overflow-hidden">
+                    <div class="text-purple-400 font-extrabold text-2xl">03</div>
+                    <span class="font-bold text-white block uppercase tracking-wider">Verificar Autorização</span>
+                    <p class="text-slate-300">Confirmar formalmente com a gerência/DPO se a baixa e o descarte do equipamento foram autorizados.</p>
+                </div>
+                <!-- Passo 4 -->
+                <div class="bg-slate-900/80 border border-slate-700 p-4 rounded-xl space-y-2 relative overflow-hidden">
+                    <div class="text-purple-400 font-extrabold text-2xl">04</div>
+                    <span class="font-bold text-white block uppercase tracking-wider">Eliminação de Dados</span>
+                    <p class="text-slate-300">Executar a higienização apropriada (sobrescrita zero-fill, desmagnetização ou destruição física) conforme a política interna.</p>
+                </div>
+                <!-- Passo 5 -->
+                <div class="bg-slate-900/80 border border-slate-700 p-4 rounded-xl space-y-2 relative overflow-hidden">
+                    <div class="text-purple-400 font-extrabold text-2xl">05</div>
+                    <span class="font-bold text-white block uppercase tracking-wider">Registrar</span>
+                    <p class="text-slate-300">Documentar em laudo técnico com data, método de sanitização aplicado, responsável e o número de patrimônio.</p>
+                </div>
+                <!-- Passo 6 -->
+                <div class="bg-slate-900/80 border border-slate-700 p-4 rounded-xl space-y-2 relative overflow-hidden">
+                    <div class="text-purple-400 font-extrabold text-2xl">06</div>
+                    <span class="font-bold text-white block uppercase tracking-wider">Destinar</span>
+                    <p class="text-slate-300">Encaminhar o equipamento devidamente higienizado para a cadeia de reciclagem ou reutilização adequada.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ÁREA INTERATIVA DO JOGO: SIMULADOR DE HIGIENIZAÇÃO DE DADOS -->
+        <section class="bg-slate-800/90 border border-purple-500/40 rounded-2xl p-6 sm:p-8 shadow-2xl space-y-6">
+            <div class="flex flex-wrap items-center justify-between gap-4 border-b border-slate-700 pb-4">
+                <div>
+                    <span class="text-xs text-purple-400 font-bold uppercase tracking-wider bg-purple-500/10 px-3 py-1 rounded-full border border-purple-500/20">
+                        Jogo Prático Interativo
+                    </span>
+                    <h3 class="text-xl font-extrabold text-white mt-1">Simulador de Higienização de Dados e Sanitização de Ativos</h3>
+                </div>
+                <div class="text-xs bg-slate-900 px-3 py-1.5 rounded-lg border border-slate-700 text-slate-300">
+                    Progresso: <span id="game-progress" class="font-bold text-purple-400">0 / 3</span> casos resolvidos
+                </div>
+            </div>
+
+            <!-- CASOS PRÁTICOS -->
+            <div class="space-y-6">
+
+                <!-- CASO 1 -->
+                <div id="c1-box" class="bg-slate-900/80 border border-slate-700 p-5 rounded-xl space-y-3">
+                    <span class="text-xs font-bold text-purple-400 uppercase tracking-wider">Caso #1 • O Descarte da Impressora Multifuncional</span>
+                    <p class="text-xs text-slate-200">
+                        Sua empresa vai trocar uma impressora multifuncional de grande porte. O almoxarifado quer apenas colocá-la na calçada para o lixeiro. Você, como técnico, lembra que impressoras avançadas possuem disco rígido/memória interna contendo cópias de documentos digitalizados. Qual a atitude correta?
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                        <button onclick="checkCase(1, 'A', this)" class="bg-slate-800 hover:bg-slate-700 p-3 rounded-lg border border-slate-700 text-left">
+                            A) Liberar o descarte imediatamente, afinal impressoras não armazenam arquivos.
+                        </button>
+                        <button onclick="checkCase(1, 'B', this)" class="bg-slate-800 hover:bg-slate-700 p-3 rounded-lg border border-slate-700 text-left">
+                            B) Interromper o descarte, acessar as configurações para realizar a restauração de fábrica, formatar o armazenamento interno e registrar o procedimento.
+                        </button>
+                    </div>
+                    <div id="fc1" class="hidden p-3 rounded-lg text-xs font-medium"></div>
+                </div>
+
+                <!-- CASO 2 -->
+                <div id="c2-box" class="bg-slate-900/80 border border-slate-700 p-5 rounded-xl space-y-3">
+                    <span class="text-xs font-bold text-indigo-400 uppercase tracking-wider">Caso #2 • A Formatação Simples vs Sanitização</span>
+                    <p class="text-xs text-slate-200">
+                        Um computador do setor de RH contendo banco de dados com salários e CPFs será doado. Um estagiário sugere apenas dar um clique com o botão direito e "Formatar" no Windows antes de entregar. O que o técnico responsável deve esclarecer?
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                        <button onclick="checkCase(2, 'A', this)" class="bg-slate-800 hover:bg-slate-700 p-3 rounded-lg border border-slate-700 text-left">
+                            A) A formatação rápida do Windows não apaga os dados reais, permitindo fácil recuperação. É necessário aplicar algoritmos de sobrescrita (Zero-Fill) ou destruição segura.
+                        </button>
+                        <button onclick="checkCase(2, 'B', this)" class="bg-slate-800 hover:bg-slate-700 p-3 rounded-lg border border-slate-700 text-left">
+                            B) A formatação simples do Windows destrói fisicamente o disco, garantindo total segurança.
+                        </button>
+                    </div>
+                    <div id="fc2" class="hidden p-3 rounded-lg text-xs font-medium"></div>
+                </div>
+
+                <!-- CASO 3 -->
+                <div id="c3-box" class="bg-slate-900/80 border border-slate-700 p-5 rounded-xl space-y-3">
+                    <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">Caso #3 • A Etapa de Registro</span>
+                    <p class="text-xs text-slate-200">
+                        Após formatar de forma segura 10 SSDs de notebooks que serão reciclados, qual é o 5º passo fundamental do procedimento antes de entregar os componentes para a transportadora?
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                        <button onclick="checkCase(3, 'A', this)" class="bg-slate-800 hover:bg-slate-700 p-3 rounded-lg border border-slate-700 text-left">
+                            A) Registrar e documentar o procedimento em um laudo contendo patrimônio, responsável e método aplicado.
+                        </button>
+                        <button onclick="checkCase(3, 'B', this)" class="bg-slate-800 hover:bg-slate-700 p-3 rounded-lg border border-slate-700 text-left">
+                            B) Vender os SSDs na internet sem emitir laudo para cobrir custos operacionais.
+                        </button>
+                    </div>
+                    <div id="fc3" class="hidden p-3 rounded-lg text-xs font-medium"></div>
+                </div>
+
+            </div>
+
+            <!-- RESULTADO FINAL -->
+            <div id="badge-container" class="hidden bg-purple-950/80 border border-purple-500/50 p-6 rounded-xl text-center space-y-3">
+                <div class="w-16 h-16 bg-purple-500/20 text-purple-400 border border-purple-500/30 rounded-full flex items-center justify-center mx-auto text-3xl">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <h4 class="text-lg font-bold text-white">Parabéns! Você Concluiu a Parte VII!</h4>
+                <p class="text-xs text-slate-300">
+                    Você dominou as técnicas de mitigação de riscos de dados no descarte de ativos de TI e aprendeu a aplicar a rotina completa de sanitização de dados!
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-800 border-t border-slate-700 py-4 text-center text-xs text-slate-400 mt-8">
+        <p>SENAC • Técnico em Informática | Material Didático - Parte VII: Segurança da Informação e Descarte</p>
+    </footer>
+
+    <!-- LÓGICA DO JOGO -->
+    <script>
+        let score = 0;
+        let solved = { 1: false, 2: false, 3: false };
+
+        const answers = {
+            1: 'B',
+            2: 'A',
+            3: 'A'
+        };
+
+        function checkCase(cNum, choice, btn) {
+            if(solved[cNum]) return;
+
+            let fbEl = document.getElementById(`fc${cNum}`);
+            fbEl.classList.remove('hidden');
+
+            if(choice === answers[cNum]) {
+                solved[cNum] = true;
+                score += 100;
+                document.getElementById('score-display').innerText = `${score} XP`;
+
+                btn.className = "bg-purple-900/60 border border-purple-500 text-purple-200 p-3 rounded-lg text-xs text-left font-semibold";
+                fbEl.className = "p-3 rounded-lg text-xs font-medium bg-purple-950/60 border border-purple-500/40 text-purple-300";
+                fbEl.innerHTML = '<i class="fa-solid fa-circle-check mr-1.5"></i> <strong>Excelente Decisão!</strong> Você evitou um possível vazamento de dados sigilosos e garantiu o cumprimento do protocolo de segurança.';
+
+                updateProgress();
+            } else {
+                btn.className = "bg-red-900/40 border border-red-500/50 text-red-200 p-3 rounded-lg text-xs text-left";
+                fbEl.className = "p-3 rounded-lg text-xs font-medium bg-red-950/60 border border-red-500/40 text-red-300";
+                fbEl.innerHTML = '<i class="fa-solid fa-circle-xmark mr-1.5"></i> <strong>Cuidado!</strong> Essa ação pode expor dados sensíveis da organização a terceiros. Revise o procedimento correto acima.';
+                
+                setTimeout(() => {
+                    btn.className = "bg-slate-800 hover:bg-slate-700 p-3 rounded-lg border border-slate-700 text-left text-xs";
+                }, 1500);
+            }
+        }
+
+        function updateProgress() {
+            let count = Object.values(solved).filter(Boolean).length;
+            document.getElementById('game-progress').innerText = `${count} / 3`;
+
+            if(count === 3) {
+                document.getElementById('badge-container').classList.remove('hidden');
+            }
+        }
+    </script>
+</body>
+</html>

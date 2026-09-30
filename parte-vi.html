@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parte VI - Sustentabilidade na Manutenção | SENAC</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        senacOrange: '#F37021',
+                        senacBlue: '#004A8F',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #475569; }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col justify-between selection:bg-emerald-500 selection:text-white">
+
+    <!-- Header / Navbar -->
+    <header class="bg-slate-800 border-b border-slate-700 sticky top-0 z-50 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <div class="bg-gradient-to-tr from-emerald-600 to-teal-500 p-2.5 rounded-xl text-white shadow-lg">
+                    <i class="fa-solid fa-leaf text-xl"></i>
+                </div>
+                <div>
+                    <h1 class="text-lg font-bold tracking-tight text-white flex items-center gap-2">
+                        SENAC Técnico em Informática 
+                        <span class="text-xs bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded-full border border-emerald-500/30">Parte VI</span>
+                    </h1>
+                    <p class="text-xs text-slate-400">Sustentabilidade, Economia Circular e Destinação de Resíduos Tecnológicos</p>
+                </div>
+            </div>
+
+            <div class="flex items-center space-x-4 mt-2 sm:mt-0">
+                <div class="bg-slate-900/80 border border-slate-700 px-3 py-1.5 rounded-lg flex items-center space-x-2">
+                    <i class="fa-solid fa-bolt text-amber-400"></i>
+                    <span class="text-xs text-slate-400 font-medium">Pontuação:</span>
+                    <span id="score-display" class="text-sm font-bold text-amber-400">0 XP</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 space-y-8">
+
+        <!-- Banner de Capa da Parte VI -->
+        <div class="bg-gradient-to-r from-slate-800 via-slate-800 to-emerald-950/80 border border-slate-700 rounded-2xl p-6 sm:p-8 shadow-xl relative overflow-hidden">
+            <div class="absolute -right-10 -bottom-10 opacity-10 text-emerald-400 pointer-events-none">
+                <i class="fa-solid fa-recycle text-9xl"></i>
+            </div>
+            <div class="max-w-3xl">
+                <span class="text-emerald-400 text-xs font-bold uppercase tracking-wider bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20 inline-block mb-3">
+                    Material Didático Completo • Parte VI
+                </span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-white mb-3">
+                    PARTE VI — SUSTENTABILIDADE NA MANUTENÇÃO DE TI
+                </h2>
+                <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                    Aprenda a reduzir o e-lixo (lixo eletrônico), prolongar a vida útil do hardware através de diagnósticos assertivos e aplicar o fluxo profissional de 8 etapas para o descarte ecológico de ativos.
+                </p>
+            </div>
+        </div>
+
+        <!-- 40. COMO UM TÉCNICO PODE REDUZIR RESÍDUOS? -->
+        <section class="bg-slate-800 border border-slate-700 rounded-2xl p-6 shadow-md space-y-4">
+            <div class="flex items-center gap-3 border-b border-slate-700 pb-3">
+                <div class="p-2.5 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400">
+                    <i class="fa-solid fa-recycle text-xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white">40. COMO REDUZIR RESÍDUOS NA MANUTENÇÃO DE TI?</h3>
+            </div>
+            <p class="text-sm text-slate-300 leading-relaxed">
+                A redução do impacto ambiental do e-lixo deve ser praticada em todas as etapas do atendimento técnico:
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+                <!-- Antes da manutenção -->
+                <div class="bg-slate-900/80 border border-slate-700 p-4 rounded-xl space-y-2">
+                    <div class="flex items-center gap-2 text-emerald-400 font-bold border-b border-slate-700 pb-1.5">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <span>ANTES DA MANUTENÇÃO</span>
+                    </div>
+                    <ul class="list-disc list-inside text-slate-300 space-y-1">
+                        <li>Diagnosticar corretamente.</li>
+                        <li>Evitar troca desnecessária de peças.</li>
+                        <li>Verificar possibilidade de reparo.</li>
+                        <li>Avaliar a compatibilidade de componentes.</li>
+                    </ul>
+                </div>
+
+                <!-- Durante a manutenção -->
+                <div class="bg-slate-900/80 border border-slate-700 p-4 rounded-xl space-y-2">
+                    <div class="flex items-center gap-2 text-emerald-400 font-bold border-b border-slate-700 pb-1.5">
+                        <i class="fa-solid fa-screwdriver-wrench"></i>
+                        <span>DURANTE A MANUTENÇÃO</span>
+                    </div>
+                    <ul class="list-disc list-inside text-slate-300 space-y-1">
+                        <li>Utilizar ferramentas adequadas.</li>
+                        <li>Evitar danos físicos aos componentes.</li>
+                        <li>Organizar e identificar peças retiradas.</li>
+                        <li>Evitar o desperdício de insumos.</li>
+                    </ul>
+                </div>
+
+                <!-- Depois da manutenção -->
+                <div class="bg-slate-900/80 border border-slate-700 p-4 rounded-xl space-y-2">
+                    <div class="flex items-center gap-2 text-emerald-400 font-bold border-b border-slate-700 pb-1.5">
+                        <i class="fa-solid fa-square-check"></i>
+                        <span>DEPOIS DA MANUTENÇÃO</span>
+                    </div>
+                    <ul class="list-disc list-inside text-slate-300 space-y-1">
+                        <li>Testar o equipamento rigorosamente.</li>
+                        <li>Registrar detalhadamente o serviço.</li>
+                        <li>Armazenar peças ainda aproveitáveis.</li>
+                        <li>Separar e destinar resíduos adequadamente.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 41. EXEMPLO PRÁTICO -->
+        <section class="bg-slate-800 border border-slate-700 rounded-2xl p-6 shadow-md space-y-4">
+            <div class="flex items-center gap-3 border-b border-slate-700 pb-3">
+                <div class="p-2.5 rounded-xl bg-teal-500/10 border border-teal-500/20 text-teal-400">
+                    <i class="fa-solid fa-lightbulb text-xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white">41. EXEMPLO PRÁTICO: UPGRADE VS. SUBSTITUIÇÃO TOTAL</h3>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs">
+                <div class="bg-slate-900/80 p-4 rounded-xl border border-slate-700 space-y-2">
+                    <span class="font-bold text-amber-400 uppercase block">Situação do Cliente</span>
+                    <p class="text-slate-300">
+                        O usuário quer descartar e comprar um novo computador devido a:
+                    </p>
+                    <ul class="list-disc list-inside text-slate-400 space-y-0.5">
+                        <li>Lentidão extrema e travamentos</li>
+                        <li>Pouco espaço disponível</li>
+                        <li>Alta utilização do armazenamento</li>
+                    </ul>
+                </div>
+
+                <div class="bg-slate-900/80 p-4 rounded-xl border border-slate-700 space-y-2">
+                    <span class="font-bold text-teal-400 uppercase block">Análise e Diagnóstico Técnico</span>
+                    <p class="text-slate-300">
+                        O técnico avalia RAM, temperatura, integridade do sistema, estado do HD e conclui:
+                    </p>
+                    <p class="text-teal-300 font-medium bg-teal-950/50 p-2 rounded border border-teal-500/30">
+                        O hardware é plenamente compatível com uma simples atualização de armazenamento (Substituição do HD por SSD).
+                    </p>
+                </div>
+
+                <div class="bg-slate-900/80 p-4 rounded-xl border border-slate-700 space-y-2">
+                    <span class="font-bold text-emerald-400 uppercase block">Resultado Sustentável</span>
+                    <ul class="list-disc list-inside text-slate-300 space-y-1">
+                        <li>Aumento expressivo da vida útil do PC</li>
+                        <li>Redução drástica na geração de e-lixo</li>
+                        <li>Investimento financeiro muito menor</li>
+                        <li>Reaproveitamento total da máquina</li>
+                        <li>Necessidade apenas de destinar o HD retirado</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 42. FLUXO PROFISSIONAL DE DESTINAÇÃO -->
+        <section class="bg-slate-800 border border-slate-700 rounded-2xl p-6 shadow-md space-y-4">
+            <div class="flex items-center gap-3 border-b border-slate-700 pb-3">
+                <div class="p-2.5 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400">
+                    <i class="fa-solid fa-diagram-project text-xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white">42. FLUXO PROFISSIONAL DE DESTINAÇÃO EM 8 ETAPAS</h3>
+            </div>
+
+            <p class="text-sm text-slate-300">
+                Siga a sequência lógica decisória para destinação ecologicamente correta de equipamentos e componentes descartados:
+            </p>
+
+            <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-2 text-xs">
+                <!-- 1 -->
+                <div class="bg-slate-900/90 border border-slate-700 p-3 rounded-xl text-center space-y-1">
+                    <span class="w-6 h-6 bg-emerald-500/20 text-emerald-400 rounded-full inline-flex items-center justify-center font-bold">1</span>
+                    <div class="font-bold text-white block">Identificar</div>
+                    <span class="text-slate-400 text-[10px] block">Que equipamento é?</span>
+                </div>
+                <!-- 2 -->
+                <div class="bg-slate-900/90 border border-slate-700 p-3 rounded-xl text-center space-y-1">
+                    <span class="w-6 h-6 bg-emerald-500/20 text-emerald-400 rounded-full inline-flex items-center justify-center font-bold">2</span>
+                    <div class="font-bold text-white block">Avaliar</div>
+                    <span class="text-slate-400 text-[10px] block">Ainda funciona?</span>
+                </div>
+                <!-- 3 -->
+                <div class="bg-slate-900/90 border border-slate-700 p-3 rounded-xl text-center space-y-1">
+                    <span class="w-6 h-6 bg-emerald-500/20 text-emerald-400 rounded-full inline-flex items-center justify-center font-bold">3</span>
+                    <div class="font-bold text-white block">Diagnosticar</div>
+                    <span class="text-slate-400 text-[10px] block">Pode ser reparado?</span>
+                </div>
+                <!-- 4 -->
+                <div class="bg-slate-900/90 border border-slate-700 p-3 rounded-xl text-center space-y-1">
+                    <span class="w-6 h-6 bg-emerald-500/20 text-emerald-400 rounded-full inline-flex items-center justify-center font-bold">4</span>
+                    <div class="font-bold text-white block">Reutilizar</div>
+                    <span class="text-slate-400 text-[10px] block">Continua em uso?</span>
+                </div>
+                <!-- 5 -->
+                <div class="bg-slate-900/90 border border-slate-700 p-3 rounded-xl text-center space-y-1">
+                    <span class="w-6 h-6 bg-emerald-500/20 text-emerald-400 rounded-full inline-flex items-center justify-center font-bold">5</span>
+                    <div class="font-bold text-white block">Reaproveitar</div>
+                    <span class="text-slate-400 text-[10px] block">Outra finalidade?</span>
+                </div>
+                <!-- 6 -->
+                <div class="bg-slate-900/90 border border-slate-700 p-3 rounded-xl text-center space-y-1">
+                    <span class="w-6 h-6 bg-emerald-500/20 text-emerald-400 rounded-full inline-flex items-center justify-center font-bold">6</span>
+                    <div class="font-bold text-white block">Reciclar</div>
+                    <span class="text-slate-400 text-[10px] block">Pode reciclar?</span>
+                </div>
+                <!-- 7 -->
+                <div class="bg-slate-900/90 border border-slate-700 p-3 rounded-xl text-center space-y-1">
+                    <span class="w-6 h-6 bg-emerald-500/20 text-emerald-400 rounded-full inline-flex items-center justify-center font-bold">7</span>
+                    <div class="font-bold text-white block">Destinar</div>
+                    <span class="text-slate-400 text-[10px] block">Qual a receptora?</span>
+                </div>
+                <!-- 8 -->
+                <div class="bg-slate-900/90 border border-slate-700 p-3 rounded-xl text-center space-y-1">
+                    <span class="w-6 h-6 bg-emerald-500/20 text-emerald-400 rounded-full inline-flex items-center justify-center font-bold">8</span>
+                    <div class="font-bold text-white block">Registrar</div>
+                    <span class="text-slate-400 text-[10px] block">Como e quando?</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ÁREA INTERATIVA DO JOGO: SIMULADOR DE FLUXO DE DESTINAÇÃO -->
+        <section class="bg-slate-800/90 border border-emerald-500/40 rounded-2xl p-6 sm:p-8 shadow-2xl space-y-6">
+            <div class="flex flex-wrap items-center justify-between gap-4 border-b border-slate-700 pb-4">
+                <div>
+                    <span class="text-xs text-emerald-400 font-bold uppercase tracking-wider bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">
+                        Jogo Prático Interativo
+                    </span>
+                    <h3 class="text-xl font-extrabold text-white mt-1">Simulador de Decisão e Gestão Ecológica de TI</h3>
+                </div>
+                <div class="text-xs bg-slate-900 px-3 py-1.5 rounded-lg border border-slate-700 text-slate-300">
+                    Progresso: <span id="game-progress" class="font-bold text-emerald-400">0 / 3</span> decisões corretas
+                </div>
+            </div>
+
+            <!-- DESAFIOS PRÁTICOS -->
+            <div class="space-y-6">
+
+                <!-- DESAFIO 1 -->
+                <div id="d1-box" class="bg-slate-900/80 border border-slate-700 p-5 rounded-xl space-y-3">
+                    <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">Desafio #1 • A Fonte de Alimentação com Ventoinha Quebrada</span>
+                    <p class="text-xs text-slate-200">
+                        Uma empresa quer jogar fora 10 fontes reais de alta potência porque o cooler (ventoinha) travou. O que o técnico ecológico deve sugerir?
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                        <button onclick="checkDecision(1, 'A', this)" class="bg-slate-800 hover:bg-slate-700 p-3 rounded-lg border border-slate-700 text-left">
+                            A) Aceitar e jogar todas as fontes no lixo comum de resíduos sólidos.
+                        </button>
+                        <button onclick="checkDecision(1, 'B', this)" class="bg-slate-800 hover:bg-slate-700 p-3 rounded-lg border border-slate-700 text-left">
+                            B) Aplicar a etapa 3 (Diagnosticar e Reparar), efetuando a troca apenas do cooler por um valor baixíssimo e evitando descarte de fontes funcionais.
+                        </button>
+                    </div>
+                    <div id="fd1" class="hidden p-3 rounded-lg text-xs font-medium"></div>
+                </div>
+
+                <!-- DESAFIO 2 -->
+                <div id="d2-box" class="bg-slate-900/80 border border-slate-700 p-5 rounded-xl space-y-3">
+                    <span class="text-xs font-bold text-teal-400 uppercase tracking-wider">Desafio #2 • O HD Antigo de 500GB que Sobrou</span>
+                    <p class="text-xs text-slate-200">
+                        Um cliente trocou o HD antigo por um SSD em seu notebook. O HD de 500GB ainda está sem setores defeituosos (Saudável). Qual a melhor prática de Reaproveitamento (Etapa 5)?
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                        <button onclick="checkDecision(2, 'A', this)" class="bg-slate-800 hover:bg-slate-700 p-3 rounded-lg border border-slate-700 text-left">
+                            A) Transformar o HD em um Case HD Externo USB portátil para backup do próprio cliente.
+                        </button>
+                        <button onclick="checkDecision(2, 'B', this)" class="bg-slate-800 hover:bg-slate-700 p-3 rounded-lg border border-slate-700 text-left">
+                            B) Quebrar o disco com um martelo e jogar na calçada.
+                        </button>
+                    </div>
+                    <div id="fd2" class="hidden p-3 rounded-lg text-xs font-medium"></div>
+                </div>
+
+                <!-- DESAFIO 3 -->
+                <div id="d3-box" class="bg-slate-900/80 border border-slate-700 p-5 rounded-xl space-y-3">
+                    <span class="text-xs font-bold text-amber-400 uppercase tracking-wider">Desafio #3 • A Bateria Inflatada de Notebook</span>
+                    <p class="text-xs text-slate-200">
+                        Uma bateria de íons de lítio está estufada e não retém mais carga. Não há como reusar ou reparar. O que determina a Etapa 7 (Destinar)?
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                        <button onclick="checkDecision(3, 'A', this)" class="bg-slate-800 hover:bg-slate-700 p-3 rounded-lg border border-slate-700 text-left">
+                            A) Encaminhar para pontos de coleta seletiva de e-lixo ou cooperativas homologadas de reciclagem de baterias químicas.
+                        </button>
+                        <button onclick="checkDecision(3, 'B', this)" class="bg-slate-800 hover:bg-slate-700 p-3 rounded-lg border border-slate-700 text-left">
+                            B) Descartar na caçamba de entulho de construção civil.
+                        </button>
+                    </div>
+                    <div id="fd3" class="hidden p-3 rounded-lg text-xs font-medium"></div>
+                </div>
+
+            </div>
+
+            <!-- RESULTADO FINAL -->
+            <div id="badge-container" class="hidden bg-emerald-950/80 border border-emerald-500/50 p-6 rounded-xl text-center space-y-3">
+                <div class="w-16 h-16 bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 rounded-full flex items-center justify-center mx-auto text-3xl">
+                    <i class="fa-solid fa-seedling"></i>
+                </div>
+                <h4 class="text-lg font-bold text-white">Excelente! Você Dominou a Sustentabilidade em TI!</h4>
+                <p class="text-xs text-slate-300">
+                    Você sabe como aplicar a economia circular, prolongar a vida útil do hardware e destinar corretamente resíduos tecnológicos de acordo com a política ambiental!
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-800 border-t border-slate-700 py-4 text-center text-xs text-slate-400 mt-8">
+        <p>SENAC • Técnico em Informática | Material Didático - Parte VI: Sustentabilidade na Manutenção</p>
+    </footer>
+
+    <!-- LÓGICA DO JOGO -->
+    <script>
+        let score = 0;
+        let solved = { 1: false, 2: false, 3: false };
+
+        const answers = {
+            1: 'B',
+            2: 'A',
+            3: 'A'
+        };
+
+        function checkDecision(dNum, choice, btn) {
+            if(solved[dNum]) return;
+
+            let fbEl = document.getElementById(`fd${dNum}`);
+            fbEl.classList.remove('hidden');
+
+            if(choice === answers[dNum]) {
+                solved[dNum] = true;
+                score += 100;
+                document.getElementById('score-display').innerText = `${score} XP`;
+
+                btn.className = "bg-emerald-900/60 border border-emerald-500 text-emerald-200 p-3 rounded-lg text-xs text-left font-semibold";
+                fbEl.className = "p-3 rounded-lg text-xs font-medium bg-emerald-950/60 border border-emerald-500/40 text-emerald-300";
+                fbEl.innerHTML = '<i class="fa-solid fa-circle-check mr-1.5"></i> <strong>Decisão Sustentável Correta!</strong> Você evitou a geração desnecessária de e-lixo e cumpriu a diretriz ambiental do fluxo de destinação.';
+
+                updateProgress();
+            } else {
+                btn.className = "bg-red-900/40 border border-red-500/50 text-red-200 p-3 rounded-lg text-xs text-left";
+                fbEl.className = "p-3 rounded-lg text-xs font-medium bg-red-950/60 border border-red-500/40 text-red-300";
+                fbEl.innerHTML = '<i class="fa-solid fa-circle-xmark mr-1.5"></i> <strong>Incorreto.</strong> Essa conduta gera contaminação ambiental e descumpre as regras de destinação de TI. Tente novamente.';
+                
+                setTimeout(() => {
+                    btn.className = "bg-slate-800 hover:bg-slate-700 p-3 rounded-lg border border-slate-700 text-left text-xs";
+                }, 1500);
+            }
+        }
+
+        function updateProgress() {
+            let count = Object.values(solved).filter(Boolean).length;
+            document.getElementById('game-progress').innerText = `${count} / 3`;
+
+            if(count === 3) {
+                document.getElementById('badge-container').classList.remove('hidden');
+            }
+        }
+    </script>
+</body>
+</html>
