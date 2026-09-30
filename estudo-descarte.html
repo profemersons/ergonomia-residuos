@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Estudo de Caso Final - Gestão de Descarte e Ergonomia | SENAC</title>
+    <title>Estudo de Caso - Laboratório de Informática | SENAC</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome icons -->
@@ -66,14 +66,14 @@
         <div class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap justify-between items-center">
             <div class="flex items-center space-x-3">
                 <div class="bg-gradient-to-tr from-indigo-600 to-blue-500 p-2.5 rounded-xl text-white shadow-lg">
-                    <i class="fa-solid fa-recycle text-xl"></i>
+                    <i class="fa-solid fa-desktop text-xl"></i>
                 </div>
                 <div>
                     <h1 class="text-lg font-bold tracking-tight text-white flex items-center gap-2">
                         SENAC Técnico em Informática 
-                        <span class="text-xs bg-indigo-500/20 text-indigo-400 px-2 py-0.5 rounded-full border border-indigo-500/30">Estudo de Caso Final</span>
+                        <span class="text-xs bg-indigo-500/20 text-indigo-400 px-2 py-0.5 rounded-full border border-indigo-500/30">Estudo de Caso 58</span>
                     </h1>
-                    <p class="text-xs text-slate-400">Plano Integrado de Sustentabilidade, Descarte e Ergonomia</p>
+                    <p class="text-xs text-slate-400">Diagnóstico e Gestão de Descarte de Hardware</p>
                 </div>
             </div>
 
@@ -91,23 +91,34 @@
         <!-- Banner de Capa -->
         <div class="bg-gradient-to-r from-slate-800 via-slate-800 to-indigo-950/80 border border-slate-700 rounded-2xl p-6 sm:p-8 shadow-xl relative overflow-hidden pdf-block">
             <div class="absolute -right-10 -bottom-10 opacity-10 text-indigo-400 pointer-events-none">
-                <i class="fa-solid fa-dumpster-fire text-9xl"></i>
+                <i class="fa-solid fa-microchip text-9xl"></i>
             </div>
             <div class="max-w-3xl">
                 <span class="text-indigo-400 text-xs font-bold uppercase tracking-wider bg-indigo-500/10 px-3 py-1 rounded-full border border-indigo-500/20 inline-block mb-3">
-                    Atividade Avaliativa Final • Módulo de TI
+                    Estudo de Caso • 58
                 </span>
                 <h2 class="text-2xl sm:text-3xl font-extrabold text-white mb-3">
-                    ESTUDO DE CASO FINAL: ADEQUAÇÃO DE TI E DESCARTE DE LIXO ELETRÔNICO
+                    CASO: LABORATÓRIO DE INFORMÁTICA
                 </h2>
+                <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-4">
+                    Uma escola possui 30 computadores. Após cinco anos de uso, alguns apresentam:
+                </p>
+                <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs sm:text-sm text-slate-300 mb-4 list-disc list-inside">
+                    <li>Lentidão</li>
+                    <li>Problemas de armazenamento</li>
+                    <li>Teclados defeituosos</li>
+                    <li>Fontes com falha</li>
+                    <li>Monitores quebrados</li>
+                    <li>Equipamentos funcionando normalmente</li>
+                </ul>
                 <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
-                    <strong>Cenário Geral:</strong> Uma empresa de tecnologia está renovando o seu parque tecnológico e desativando 30 computadores antigos. Além de relatar problemas de saúde entre os colaboradores decorrentes da má estruturação das estações de trabalho, a empresa precisa cumprir as exigências legais para o descarte ambientalmente correto do e-lixo e segurança de dados.
+                    A direção decide descartar todos os computadores. A equipe técnica questiona a decisão. Responda às perguntas abaixo:
                 </p>
             </div>
         </div>
 
         <!-- FORMULÁRIO DE RESPOSTAS -->
-        <form id="final-case-form" class="space-y-6">
+        <form id="lab-case-form" class="space-y-6">
 
             <!-- IDENTIFICAÇÃO DO ESTUDANTE -->
             <div class="bg-slate-800 border border-indigo-500/40 rounded-2xl p-5 sm:p-6 shadow-md space-y-4 pdf-block">
@@ -126,62 +137,106 @@
                 </div>
             </div>
 
-            <!-- ETAPA 1: SEGURANÇA DA INFORMAÇÃO -->
+            <!-- PERGUNTA 1 -->
             <div class="bg-slate-800 border border-slate-700 rounded-2xl p-5 sm:p-6 shadow-md space-y-4 pdf-block">
                 <div class="flex items-center gap-3 border-b border-slate-700 pb-3">
                     <span class="w-8 h-8 bg-indigo-500/20 text-indigo-400 rounded-lg flex items-center justify-center font-bold text-sm">1</span>
-                    <h3 class="text-base font-bold text-white">Triagem e Higienização de Dados nos HDs</h3>
+                    <h3 class="text-base font-bold text-white">Diagnóstico Prévio</h3>
                 </div>
-                <p class="text-xs text-slate-400">Antes do descarte ou doação das máquinas, é essencial garantir a proteção das informações confidenciais armazenadas nos discos rígidos.</p>
                 <div>
-                    <label class="block text-xs font-semibold text-slate-300 mb-2">Qual procedimento o técnico de TI deve realizar para sanitarizar os dados dos computadores com segurança?</label>
-                    <textarea id="ans-dados" rows="3" required placeholder="Explique sobre métodos de sobrescrita de dados, formatação física/lógica e destruição de discos..." class="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-xs sm:text-sm text-slate-100 focus:outline-none focus:border-indigo-500 transition"></textarea>
+                    <label class="block text-xs font-semibold text-slate-300 mb-2">Quais equipamentos deveriam ser diagnosticados antes do descarte?</label>
+                    <textarea id="ans-1" rows="3" required placeholder="Digite sua resposta..." class="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-xs sm:text-sm text-slate-100 focus:outline-none focus:border-indigo-500 transition"></textarea>
                 </div>
             </div>
 
-            <!-- ETAPA 2: LEGISLAÇÃO E LOGÍSTICA REVERSA -->
+            <!-- PERGUNTA 2 -->
             <div class="bg-slate-800 border border-slate-700 rounded-2xl p-5 sm:p-6 shadow-md space-y-4 pdf-block">
                 <div class="flex items-center gap-3 border-b border-slate-700 pb-3">
                     <span class="w-8 h-8 bg-indigo-500/20 text-indigo-400 rounded-lg flex items-center justify-center font-bold text-sm">2</span>
-                    <h3 class="text-base font-bold text-white">Destinação do Lixo Eletrônico (Lei nº 12.305/2010 e Decreto nº 10.240/2020)</h3>
+                    <h3 class="text-base font-bold text-white">Atualização (Upgrade)</h3>
                 </div>
-                <p class="text-xs text-slate-400">A empresa necessita descartar placas-mãe, fontes queimadas e monitores CRT quebrados de forma ambientalmente correta.</p>
                 <div>
-                    <label class="block text-xs font-semibold text-slate-300 mb-2">Descreva o fluxo de logística reversa e quais entidades/locais devem receber esses componentes:</label>
-                    <textarea id="ans-legislacao" rows="3" required placeholder="Especifique os pontos de entrega voluntária (PEV), cooperativas e a responsabilidade compartilhada..." class="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-xs sm:text-sm text-slate-100 focus:outline-none focus:border-indigo-500 transition"></textarea>
+                    <label class="block text-xs font-semibold text-slate-300 mb-2">Quais poderiam ser atualizados?</label>
+                    <textarea id="ans-2" rows="3" required placeholder="Digite sua resposta..." class="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-xs sm:text-sm text-slate-100 focus:outline-none focus:border-indigo-500 transition"></textarea>
                 </div>
             </div>
 
-            <!-- ETAPA 3: REUTILIZAÇÃO E ECONOMIA CIRCULAR -->
+            <!-- PERGUNTA 3 -->
             <div class="bg-slate-800 border border-slate-700 rounded-2xl p-5 sm:p-6 shadow-md space-y-4 pdf-block">
                 <div class="flex items-center gap-3 border-b border-slate-700 pb-3">
                     <span class="w-8 h-8 bg-indigo-500/20 text-indigo-400 rounded-lg flex items-center justify-center font-bold text-sm">3</span>
-                    <h3 class="text-base font-bold text-white">Aproveitamento e Upcycling de Componentes</h3>
+                    <h3 class="text-base font-bold text-white">Reutilização</h3>
                 </div>
-                <p class="text-xs text-slate-400">Nem todo o lote de 30 computadores está inutilizável. Algumas peças ainda funcionam perfeitamente.</p>
                 <div>
-                    <label class="block text-xs font-semibold text-slate-300 mb-2">Proponha uma solução para reaproveitamento de componentes funcionais (RAM, gabinetes, cabos, etc.):</label>
-                    <textarea id="ans-reutilizacao" rows="3" required placeholder="Como a equipe pode reutilizar peças internamente ou promover doações sociais?" class="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-xs sm:text-sm text-slate-100 focus:outline-none focus:border-indigo-500 transition"></textarea>
+                    <label class="block text-xs font-semibold text-slate-300 mb-2">Quais poderiam ser reutilizados?</label>
+                    <textarea id="ans-3" rows="3" required placeholder="Digite sua resposta..." class="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-xs sm:text-sm text-slate-100 focus:outline-none focus:border-indigo-500 transition"></textarea>
                 </div>
             </div>
 
-            <!-- ETAPA 4: PLANO ERGONÔMICO UNIFICADO (NR-17) -->
+            <!-- PERGUNTA 4 -->
             <div class="bg-slate-800 border border-slate-700 rounded-2xl p-5 sm:p-6 shadow-md space-y-4 pdf-block">
                 <div class="flex items-center gap-3 border-b border-slate-700 pb-3">
                     <span class="w-8 h-8 bg-indigo-500/20 text-indigo-400 rounded-lg flex items-center justify-center font-bold text-sm">4</span>
-                    <h3 class="text-base font-bold text-white">Proposta Global de Ergonomia para as Novas Estações</h3>
+                    <h3 class="text-base font-bold text-white">Aproveitamento de Peças</h3>
                 </div>
-                <p class="text-xs text-slate-400">Na compra dos novos equipamentos, a empresa quer montar estações de trabalho de acordo com a NR-17.</p>
                 <div>
-                    <label class="block text-xs font-semibold text-slate-300 mb-2">Resuma os principais requisitos a serem exigidos na compra das novas mesas, cadeiras e periféricos:</label>
-                    <textarea id="ans-ergonomia-geral" rows="3" required placeholder="Detalhe as exigências de regulagem, apoios, espaço físico e iluminação para a nova sala de TI..." class="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-xs sm:text-sm text-slate-100 focus:outline-none focus:border-indigo-500 transition"></textarea>
+                    <label class="block text-xs font-semibold text-slate-300 mb-2">Quais poderiam fornecer peças?</label>
+                    <textarea id="ans-4" rows="3" required placeholder="Digite sua resposta..." class="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-xs sm:text-sm text-slate-100 focus:outline-none focus:border-indigo-500 transition"></textarea>
+                </div>
+            </div>
+
+            <!-- PERGUNTA 5 -->
+            <div class="bg-slate-800 border border-slate-700 rounded-2xl p-5 sm:p-6 shadow-md space-y-4 pdf-block">
+                <div class="flex items-center gap-3 border-b border-slate-700 pb-3">
+                    <span class="w-8 h-8 bg-indigo-500/20 text-indigo-400 rounded-lg flex items-center justify-center font-bold text-sm">5</span>
+                    <h3 class="text-base font-bold text-white">Logística Reversa</h3>
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-300 mb-2">Quais deveriam ser encaminhados para logística reversa?</label>
+                    <textarea id="ans-5" rows="3" required placeholder="Digite sua resposta..." class="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-xs sm:text-sm text-slate-100 focus:outline-none focus:border-indigo-500 transition"></textarea>
+                </div>
+            </div>
+
+            <!-- PERGUNTA 6 -->
+            <div class="bg-slate-800 border border-slate-700 rounded-2xl p-5 sm:p-6 shadow-md space-y-4 pdf-block">
+                <div class="flex items-center gap-3 border-b border-slate-700 pb-3">
+                    <span class="w-8 h-8 bg-indigo-500/20 text-indigo-400 rounded-lg flex items-center justify-center font-bold text-sm">6</span>
+                    <h3 class="text-base font-bold text-white">Tratamento de Dados</h3>
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-300 mb-2">Como tratar equipamentos que possuem dados?</label>
+                    <textarea id="ans-6" rows="3" required placeholder="Digite sua resposta..." class="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-xs sm:text-sm text-slate-100 focus:outline-none focus:border-indigo-500 transition"></textarea>
+                </div>
+            </div>
+
+            <!-- PERGUNTA 7 -->
+            <div class="bg-slate-800 border border-slate-700 rounded-2xl p-5 sm:p-6 shadow-md space-y-4 pdf-block">
+                <div class="flex items-center gap-3 border-b border-slate-700 pb-3">
+                    <span class="w-8 h-8 bg-indigo-500/20 text-indigo-400 rounded-lg flex items-center justify-center font-bold text-sm">7</span>
+                    <h3 class="text-base font-bold text-white">Documentação do Processo</h3>
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-300 mb-2">Como documentar a destinação?</label>
+                    <textarea id="ans-7" rows="3" required placeholder="Digite sua resposta..." class="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-xs sm:text-sm text-slate-100 focus:outline-none focus:border-indigo-500 transition"></textarea>
+                </div>
+            </div>
+
+            <!-- PERGUNTA 8 -->
+            <div class="bg-slate-800 border border-slate-700 rounded-2xl p-5 sm:p-6 shadow-md space-y-4 pdf-block">
+                <div class="flex items-center gap-3 border-b border-slate-700 pb-3">
+                    <span class="w-8 h-8 bg-indigo-500/20 text-indigo-400 rounded-lg flex items-center justify-center font-bold text-sm">8</span>
+                    <h3 class="text-base font-bold text-white">Sustentabilidade e Impacto</h3>
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-300 mb-2">Que benefícios ambientais podem surgir da manutenção?</label>
+                    <textarea id="ans-8" rows="3" required placeholder="Digite sua resposta..." class="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-xs sm:text-sm text-slate-100 focus:outline-none focus:border-indigo-500 transition"></textarea>
                 </div>
             </div>
 
             <!-- BOTOES DE AÇÃO -->
             <div class="text-center pt-4 no-print flex flex-col sm:flex-row justify-center gap-4">
                 <button type="button" onclick="generatePDF()" class="bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-3.5 px-8 rounded-xl shadow-lg transition duration-200 flex items-center justify-center gap-2 text-sm sm:text-base">
-                    <i class="fa-solid fa-file-arrow-down text-lg"></i> Finalizar e Exportar PDF para o MS Teams
+                    <i class="fa-solid fa-file-arrow-down text-lg"></i> Gerar PDF para o MS Teams
                 </button>
             </div>
 
@@ -191,7 +246,7 @@
 
     <!-- Footer -->
     <footer class="bg-slate-800 border-t border-slate-700 py-4 text-center text-xs text-slate-400 mt-8 no-print">
-        <p>SENAC • Técnico em Informática | Estudo de Caso Final de Sustentabilidade & Ergonomia</p>
+        <p>SENAC • Técnico em Informática | Estudo de Caso 58: Laboratório de Informática</p>
     </footer>
 
     <!-- SCRIPT DE GERAÇÃO DO PDF -->
@@ -211,7 +266,7 @@
 
             const opt = {
                 margin:       [8, 8, 8, 8],
-                filename:     `Estudo_De_Caso_Final_${name.replace(/\s+/g, '_')}.pdf`,
+                filename:     `Estudo_De_Caso_58_${name.replace(/\s+/g, '_')}.pdf`,
                 image:        { type: 'jpeg', quality: 0.98 },
                 html2canvas:  { 
                     scale: 2, 
