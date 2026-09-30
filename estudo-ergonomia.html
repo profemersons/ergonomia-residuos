@@ -44,15 +44,36 @@
             break-inside: avoid;
         }
 
+        /* Estilo para o bloco de texto gerado para o PDF */
+        .pdf-answer-box {
+            background-color: #0f172a;
+            color: #ffffff;
+            border: 1px solid #334155;
+            border-radius: 0.75rem;
+            padding: 0.75rem 1rem;
+            font-size: 0.875rem;
+            white-space: pre-wrap;
+            word-break: break-word;
+            display: none; /* Oculto na tela normal, visível apenas no PDF */
+        }
+
         /* Força a renderização com fundo escuro durante a captura do PDF */
         .rendering-pdf {
             background-color: #0f172a !important;
             color: #f8fafc !important;
         }
-        .rendering-pdf textarea, .rendering-pdf input {
+        .rendering-pdf input {
             background-color: #0f172a !important;
             color: #ffffff !important;
             border-color: #334155 !important;
+        }
+
+        .rendering-pdf textarea {
+            display: none !important; /* Esconde o textarea no PDF */
+        }
+
+        .rendering-pdf .pdf-answer-box {
+            display: block !important; /* Mostra o bloco formatado no PDF */
         }
 
         @media print {
@@ -137,6 +158,7 @@
                 <div>
                     <label class="block text-xs font-semibold text-slate-300 mb-2">Proposta de Melhoria (Altura, distância e alinhamento):</label>
                     <textarea id="ans-monitor" rows="3" required placeholder="Descreva as adequações necessárias para a altura da tela, distância dos olhos e uso de suportes..." class="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-xs sm:text-sm text-slate-100 focus:outline-none focus:border-indigo-500 transition"></textarea>
+                    <div id="pdf-ans-monitor" class="pdf-answer-box"></div>
                 </div>
             </div>
 
@@ -150,6 +172,7 @@
                 <div>
                     <label class="block text-xs font-semibold text-slate-300 mb-2">Proposta de Melhoria (Inclinação, apoio e periféricos):</label>
                     <textarea id="ans-teclado" rows="3" required placeholder="Descreva a solução ergonômica ideal para o teclado e a posição dos braços/punhos..." class="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-xs sm:text-sm text-slate-100 focus:outline-none focus:border-indigo-500 transition"></textarea>
+                    <div id="pdf-ans-teclado" class="pdf-answer-box"></div>
                 </div>
             </div>
 
@@ -163,6 +186,7 @@
                 <div>
                     <label class="block text-xs font-semibold text-slate-300 mb-2">Proposta de Melhoria (Tipo de mouse, mousepad e posicionamento):</label>
                     <textarea id="ans-mouse" rows="3" required placeholder="Indique o tipo de mouse ou acessórios ergonômicos recomendados..." class="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-xs sm:text-sm text-slate-100 focus:outline-none focus:border-indigo-500 transition"></textarea>
+                    <div id="pdf-ans-mouse" class="pdf-answer-box"></div>
                 </div>
             </div>
 
@@ -176,6 +200,7 @@
                 <div>
                     <label class="block text-xs font-semibold text-slate-300 mb-2">Proposta de Melhoria (Ajustes de altura, encosto, braços e apoio para os pés):</label>
                     <textarea id="ans-cadeira" rows="3" required placeholder="Quais os requisitos ergonômicos mínimos que a cadeira deve atender segundo a NR-17?" class="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-xs sm:text-sm text-slate-100 focus:outline-none focus:border-indigo-500 transition"></textarea>
+                    <div id="pdf-ans-cadeira" class="pdf-answer-box"></div>
                 </div>
             </div>
 
@@ -189,6 +214,7 @@
                 <div>
                     <label class="block text-xs font-semibold text-slate-300 mb-2">Proposta de Melhoria (Altura da mesa, espaço para pernas e bordas):</label>
                     <textarea id="ans-mesa" rows="3" required placeholder="Especifique as características ideais da mesa de trabalho..." class="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-xs sm:text-sm text-slate-100 focus:outline-none focus:border-indigo-500 transition"></textarea>
+                    <div id="pdf-ans-mesa" class="pdf-answer-box"></div>
                 </div>
             </div>
 
@@ -202,6 +228,7 @@
                 <div>
                     <label class="block text-xs font-semibold text-slate-300 mb-2">Proposta de Melhoria (Luz natural/artificial e eliminação de reflexos):</label>
                     <textarea id="ans-iluminacao" rows="3" required placeholder="Como corrigir a iluminação e o posicionamento em relação às fontes de luz?" class="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-xs sm:text-sm text-slate-100 focus:outline-none focus:border-indigo-500 transition"></textarea>
+                    <div id="pdf-ans-iluminacao" class="pdf-answer-box"></div>
                 </div>
             </div>
 
@@ -215,6 +242,7 @@
                 <div>
                     <label class="block text-xs font-semibold text-slate-300 mb-2">Proposta de Melhoria (Gerenciamento de cabos, pausas ativas e organização da mesa):</label>
                     <textarea id="ans-organizacao" rows="3" required placeholder="Recomende práticas organizacionais e rotinas de pausas/alongamento..." class="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-xs sm:text-sm text-slate-100 focus:outline-none focus:border-indigo-500 transition"></textarea>
+                    <div id="pdf-ans-organizacao" class="pdf-answer-box"></div>
                 </div>
             </div>
 
@@ -245,6 +273,14 @@
                 document.getElementById('student-name').focus();
                 return;
             }
+
+            // Sincroniza o conteúdo de todos os textareas para os blocos de texto formatados do PDF
+            const topics = ['monitor', 'teclado', 'mouse', 'cadeira', 'mesa', 'iluminacao', 'organizacao'];
+            topics.forEach(t => {
+                const textareaVal = document.getElementById(`ans-${t}`).value;
+                const pdfBox = document.getElementById(`pdf-ans-${t}`);
+                pdfBox.textContent = textareaVal || "(Não respondido)";
+            });
 
             const element = document.getElementById('report-container');
             
